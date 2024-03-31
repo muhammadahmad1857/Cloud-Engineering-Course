@@ -1,0 +1,12 @@
+{
+  "name": "ts-assignment-no-0",
+  "version": "1.0.0",
+  "description": "Note: Try these short programs to get some firsthand experience with TypeScript and Node.js.\r You might want to create a new folder for each exercise to keep them organized. Create a single Github repository to commit the code for these exercises and once finished submit the URL of the repo.",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
