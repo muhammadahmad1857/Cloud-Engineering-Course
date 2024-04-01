@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This assignment consists of several tasks that involve using conditional statements and taking user input to perform various operations such as checking numbers, determining age groups, calculating the number of days in a month, and checking leap years.
+This assignment consists of several tasks that involve using conditional statements to perform various operations such as checking numbers, determining age groups, calculating the number of days in a month, and checking leap years.
 
 ## Tasks
 
@@ -35,5 +35,4 @@ This assignment consists of several tasks that involve using conditional stateme
 ## Usage
 
 - For each task, run the provided code or create your own program according to the given requirements.
-- Input values as prompted or specified in the task description.
 - Review the output to ensure correctness.
