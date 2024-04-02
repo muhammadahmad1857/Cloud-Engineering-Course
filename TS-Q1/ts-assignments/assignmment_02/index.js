@@ -51,15 +51,19 @@ export {};
 //   console.log("You are not eligible to vote.");
 // }
 // 3. Write a program that takes the age of a person as input and determines whether they are a child (0-12 years), teenager (13-19 years), adult (20-59 years), or senior citizen (60 years and above)
-// const age: number = 19;
+// const age: number = 9;
 // if (age >= 60) {
 //   console.log("You are a senior citizen.");
 // } else if (age >= 20) {
 //   console.log("You are an adult.");
 // } else if (age >= 13) {
 //   console.log("You are a teenager.");
-// } else {
+// } else if (age >= 0) {
 //   console.log("You are a child.");
+// }
+// // for dynaimc programming we add this step becuase user also add data in negative numbers like -9 or -1
+// else {
+//   console.log("Invalid age.");
 // }
 // 4. Enter a month (as a number between 1 and 12). Print the number of days in that month. Assume a non-leap year.
 // const monthNumber: number = 13;
