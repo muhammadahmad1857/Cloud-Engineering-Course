@@ -26,7 +26,6 @@ You can install the Todo Management System globally using npm:
 npm install -g m-todo-lists
 ```
 
-
 ## Usage
 
 After installation, you can use the following command to start the Todo Management System:
