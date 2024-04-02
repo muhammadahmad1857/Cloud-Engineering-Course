@@ -55,7 +55,7 @@ const makeTransaction = (amount, receiverId) => {
         }
     }
     else {
-        console.log("Invalid recieverId\nId must have 5 characters");
+        console.log("Invalid recieverId\nId must have 4 characters");
     }
 };
 const changePin = (newPin) => {

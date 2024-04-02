@@ -65,7 +65,7 @@ const makeTransaction = (amount: number, receiverId: number) => {
       console.log(`$${amount} transferred to user with ID ${receiverId}`);
     }
   } else {
-    console.log("Invalid recieverId\nId must have 5 characters");
+    console.log("Invalid recieverId\nId must have 4 characters");
   }
 };
 
@@ -191,7 +191,7 @@ const startAtm = async () => {
         } else {
           console.log(`Invalid pin.`);
           console.log(`You are exiting atm...`);
-          process.exit()
+          process.exit();
         }
 
         break;
