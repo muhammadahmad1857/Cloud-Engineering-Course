@@ -76,7 +76,7 @@ const currencyConverter = (from: string, to: string, amount: number) => {
     if (currencies[from] && currencies[from][to]) {
       // Access the conversion rate using bracket notation
       console.log(`
-      1 ${from} is equal to ${currencies[to][from].toFixed(2)} ${to}
+      1 ${from} is equal to ${currencies[from][to].toFixed(2)} ${to}
       \nConversion Result:
   ${amount.toFixed(2)} ${from} is equal to ${(
         amount * currencies[to][from]
