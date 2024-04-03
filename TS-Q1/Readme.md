@@ -1,60 +1,6 @@
-# TypeScript Classes - PIAIC
+# TypeScript Quarter 1 - PIAIC
 
-Welcome to the TypeScript Classes repository organized by PIAIC (Pakistan Institute of Artificial Intelligence and Computing). This repository contains resources, assignments, and examples related to TypeScript classes for students enrolled in PIAIC's courses.
-
-## Purpose
-
-The primary purpose of this repository is to provide students with comprehensive materials and practical exercises to learn and master TypeScript classes. By engaging with the content and completing the assignments, students will gain a deep understanding of object-oriented programming concepts in TypeScript, including classes, inheritance, encapsulation, and polymorphism.
-
-## Overview
-
-In this repository, you will find a structured approach to learning TypeScript classes. We have organized the content into various modules, each covering specific aspects of classes and related topics. The modules include lectures, code examples, assignments, and supplementary materials to support your learning journey.
-
-# Course Curriculum
-
-This course covers a diverse range of topics across five quarters:
-
-## Quarter 1: TypeScript
-
-- Introduction to TypeScript
-- Basic syntax and data types
-- Functions and classes
-- Advanced TypeScript features
-- Practical applications and projects
-
-## Quarter 2: Next.js (UI/UX)
-
-- Introduction to Next.js framework
-- Building user interfaces with Next.js
-- Enhancing user experience with Next.js features
-- Styling and responsive design
-- Real-world projects and case studies
-
-## Quarter 3: Python
-
-- Introduction to Python programming language
-- Basic syntax and data structures
-- Object-oriented programming in Python
-- Python for data analysis and manipulation
-- Practical Python applications and projects
-
-## Quarter 4: Generative AI
-
-- Fundamentals of Generative AI
-- Generative Adversarial Networks (GANs)
-- Variational Autoencoders (VAEs)
-- Applications of Generative AI in art, design, and beyond
-- Hands-on projects and experimentation with Generative AI models
-
-## Quarter 5: Cloud AI Engineering
-
-- Introduction to Cloud AI services
-- Deployment of AI models on cloud platforms
-- Scalability and performance optimization techniques
-- Cloud-based AI solutions for various domains
-- Capstone project involving the integration of AI with cloud technologies
-
-This curriculum offers a comprehensive exploration of key technologies and concepts, providing students with a well-rounded understanding and practical skills in TypeScript, Next.js, Python, Generative AI, and Cloud AI Engineering.
+Welcome to the TypeScript repository organized by This repository contains resources, assignments, and examples related to TypeScript classes for students enrolled in PIAIC's courses.
 
 # Installation and Verification Guide
 
