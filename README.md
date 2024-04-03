@@ -1,4 +1,4 @@
-# Batch-60 - PIAIC
+# Cloud-Engineering course-repository
 
 **I am a student at PIAIC batch-60**
 
