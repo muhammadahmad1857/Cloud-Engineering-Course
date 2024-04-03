@@ -1,4 +1,8 @@
-# Cloud-Engineering course-repository
+# Cloud-Engineering course-repository containing solution of following.
+
+1. **Classes**
+2. **Assignments**
+3. **Node Projects**
 
 **I am a student at PIAIC batch-60**
 
