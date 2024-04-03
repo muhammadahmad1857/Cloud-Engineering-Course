@@ -147,7 +147,9 @@ class Customer {
 
 const customer = new Customer();
 await customer.getCustomerInfo();
-console.log(customer.customerInfo());
+console.log(
+  `Customer Info:\n\t
+  ${customer.customerInfo()}`);
 
 while (true) {
   await customer.performTransaction();
