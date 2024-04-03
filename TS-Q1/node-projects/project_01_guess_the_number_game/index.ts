@@ -2,12 +2,12 @@
 
 import inquirer from "inquirer";
 
-const randomNumber: number = Math.floor(Math.random() * 100 + 1);
+const randomNumber: number = Math.floor(Math.random() * 50 + 1);
 let roundsPlayed: number = 5;
 
 console.log(`Welcome to Guess the number Game.`);
 console.log(
-  `Here I think the number between 1 and 100 in ${roundsPlayed} rounds.`
+  `Here I think the number between 1 and 50 in ${roundsPlayed} rounds.`
 );
 
 async function askToGuess() {
@@ -16,7 +16,7 @@ async function askToGuess() {
       {
         type: "number",
         name: "guess",
-        message: `Guess a number between 1 and 100 in ${roundsPlayed} rounds ->`,
+        message: `Guess a number between 1 and 50 in ${roundsPlayed} rounds ->`,
       },
     ]);
 

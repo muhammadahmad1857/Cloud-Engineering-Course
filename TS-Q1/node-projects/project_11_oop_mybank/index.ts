@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
-
 interface BankAccountType {
   Debit(d: number): string;
   Credit(d: number): string;
@@ -78,8 +77,8 @@ class Customer {
         type: "number",
         name: "age",
         message: "Enter your age(must greater than 18.):",
-        validate: function (value) {
-          const valid = !isNaN(parseFloat(value)) && value >= 18;
+        validate: function (value:string) {
+          const valid = !isNaN(parseFloat(value)) && parseFloat(value) >= 18;
           return (
             valid || "Please enter your age and age must be greater than 18"
           );
@@ -126,7 +125,7 @@ class Customer {
       type: "number",
       name: "amount",
       message: `Enter amount to ${transactionType.transactionType}:`,
-      validate: function (value) {
+      validate: function (value:string) {
         const valid = !isNaN(parseFloat(value));
         return valid || "Please enter a valid number";
       },

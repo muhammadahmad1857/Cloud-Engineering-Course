@@ -1,4 +1,4 @@
-// #! /usr/bin/env node
+#! /usr/bin/env node
 import inquirer from "inquirer";
 class BankAccount {
     accountBalance;
@@ -68,7 +68,7 @@ class Customer {
                 name: "age",
                 message: "Enter your age(must greater than 18.):",
                 validate: function (value) {
-                    const valid = !isNaN(parseFloat(value)) && value >= 18;
+                    const valid = !isNaN(parseFloat(value)) && parseFloat(value) >= 18;
                     return (valid || "Please enter your age and age must be greater than 18");
                 },
             },
