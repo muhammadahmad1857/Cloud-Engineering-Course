@@ -1,5 +1,7 @@
 // Using conditional statements, check if the number is:
 
+import { log } from "console";
+
 // - Even or Odd.
 // - Positive, Negative, or Zero.
 // - Whether it is divisible by both 2 and 3 or anyone of them or not divisible by both check all the cases and print statement for each case.
@@ -211,21 +213,27 @@ let side: number = 10.9;
 
 calculateAreaOfCube(side);
 
-// - Create a program that converts a temperature from Fahrenheit to Celsius and vice versa using a variable.
+// - Create a program that converts a temperature from Fahrenheit to Celsius and vice versa
 
 const convertTemperature = (temperature: number, unit: string): void => {
-  if (unit.toLowerCase() === "f") {
-    // Fahrenheit to Celsius conversion
-    let celsius = ((temperature - 32) * 5) / 9;
-    console.log(temperature + "°F is equal to " + celsius.toFixed(2) + "°C");
-  } else if (unit.toLowerCase() === "c") {
-    // Celsius to Fahrenheit conversion
-    let fahrenheit = (temperature * 9) / 5 + 32;
-    console.log(temperature + "°C is equal to " + fahrenheit.toFixed(2) + "°F");
-  } else {
-    console.log(
-      "Invalid unit. Please use 'F' for Fahrenheit or 'C' for Celsius."
-    );
+  switch (unit) {
+    case "f":
+      // Fahrenheit to Celsius conversion
+      let celsius = ((temperature - 32) * 5) / 9;
+      console.log(temperature + "°F is equal to " + celsius.toFixed(2) + "°C");
+      break;
+    case "c":
+      // Celsius to Fahrenheit conversion
+      let fahrenheit = (temperature * 9) / 5 + 32;
+      console.log(
+        temperature + "°C is equal to " + fahrenheit.toFixed(2) + "°F"
+      );
+      break;
+    default:
+      console.log(
+        "Invalid unit. Please use 'F' for Fahrenheit or 'C' for Celsius."
+      );
+      break;
   }
 };
 
@@ -260,3 +268,5 @@ let obtainedMarks: number = 1044;
 let totalMark: number = 1100;
 
 calculatePercentage(obtainedMarks, totalMark);
+
+console.log(!0);

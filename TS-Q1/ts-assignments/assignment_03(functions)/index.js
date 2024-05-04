@@ -179,20 +179,22 @@ const calculateAreaOfCube = (side) => {
 };
 let side = 10.9;
 calculateAreaOfCube(side);
-// - Create a program that converts a temperature from Fahrenheit to Celsius and vice versa using a variable.
+// - Create a program that converts a temperature from Fahrenheit to Celsius and vice versa
 const convertTemperature = (temperature, unit) => {
-    if (unit.toLowerCase() === "f") {
-        // Fahrenheit to Celsius conversion
-        let celsius = ((temperature - 32) * 5) / 9;
-        console.log(temperature + "°F is equal to " + celsius.toFixed(2) + "°C");
-    }
-    else if (unit.toLowerCase() === "c") {
-        // Celsius to Fahrenheit conversion
-        let fahrenheit = (temperature * 9) / 5 + 32;
-        console.log(temperature + "°C is equal to " + fahrenheit.toFixed(2) + "°F");
-    }
-    else {
-        console.log("Invalid unit. Please use 'F' for Fahrenheit or 'C' for Celsius.");
+    switch (unit) {
+        case "f":
+            // Fahrenheit to Celsius conversion
+            let celsius = ((temperature - 32) * 5) / 9;
+            console.log(temperature + "°F is equal to " + celsius.toFixed(2) + "°C");
+            break;
+        case "c":
+            // Celsius to Fahrenheit conversion
+            let fahrenheit = (temperature * 9) / 5 + 32;
+            console.log(temperature + "°C is equal to " + fahrenheit.toFixed(2) + "°F");
+            break;
+        default:
+            console.log("Invalid unit. Please use 'F' for Fahrenheit or 'C' for Celsius.");
+            break;
     }
 };
 convertTemperature(32, "F"); // Convert 32°F to Celsius
@@ -213,4 +215,5 @@ const calculatePercentage = (marks, totalMarks) => {
 let obtainedMarks = 1044;
 let totalMark = 1100;
 calculatePercentage(obtainedMarks, totalMark);
+console.log(!0);
 export {};
