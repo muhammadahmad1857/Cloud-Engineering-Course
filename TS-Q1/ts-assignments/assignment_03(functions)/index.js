@@ -4,49 +4,51 @@
 // - Whether it is divisible by both 2 and 3 or anyone of them or not divisible by both check all the cases and print statement for each case.
 let num = 8;
 const checkIsPosNegOrZero = (numb) => {
-    if (numb > 0) {
-        console.log(`${numb} is positive number.`);
-    }
-    else if (numb < 0) {
-        console.log(`${numb} is negative number.`);
-    }
-    else {
-        console.log(`${numb} is zero .`);
+    switch (true) {
+        case numb > 0:
+            console.log(`${numb} is a positive number.`);
+            break;
+        case numb < 0:
+            console.log(`${numb} is a negative number.`);
+            break;
+        default:
+            console.log(`${numb} is zero.`);
+            break;
     }
 };
 const checkEvenOrOdd = (numb) => {
-    // Check if the number is even or odd
-    if (numb === 0) {
-        console.log(`${numb} is niether even nor odd number.`);
-    }
-    else if (numb % 2 === 0) {
-        console.log(`${numb} is even number.`);
-    }
-    else {
-        console.log(`${numb} is odd number.`);
+    switch (true) {
+        case numb === 0:
+            console.log(`${numb} is neither even nor odd.`);
+            break;
+        case numb % 2 === 0:
+            console.log(`${numb} is an even number.`);
+            break;
+        default:
+            console.log(`${numb} is an odd number.`);
+            break;
     }
 };
-const checkDivisiblity = (numb) => {
-    // Check divisibility by 2 and 3
-    if (numb !== 0) {
-        if (numb % 2 === 0 && numb % 3 === 0) {
+const checkDivisibility = (numb) => {
+    switch (true) {
+        case numb === 0:
+            console.log(`${numb} is zero, so it's not divisible by any number.`);
+            break;
+        case numb % 2 === 0 && numb % 3 === 0:
             console.log(`${numb} is divisible by both 2 and 3.`);
-        }
-        else if (numb % 2 === 0) {
+            break;
+        case numb % 2 === 0:
             console.log(`${numb} is divisible by 2.`);
-        }
-        else if (numb % 3 === 0) {
+            break;
+        case numb % 3 === 0:
             console.log(`${numb} is divisible by 3.`);
-        }
-        else {
+            break;
+        default:
             console.log(`${numb} is not divisible by both 2 and 3.`);
-        }
-    }
-    else {
-        console.log(`${numb} is zero so it is not divisible by any of them.`);
+            break;
     }
 };
-checkDivisiblity(num);
+checkDivisibility(num);
 checkEvenOrOdd(num);
 checkIsPosNegOrZero(num);
 // - Take the user age.
@@ -215,5 +217,4 @@ const calculatePercentage = (marks, totalMarks) => {
 let obtainedMarks = 1044;
 let totalMark = 1100;
 calculatePercentage(obtainedMarks, totalMark);
-console.log(!0);
 export {};
