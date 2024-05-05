@@ -98,40 +98,22 @@ checkAge(age);
 const checkDaysInMonth = (monthNo) => {
     switch (monthNo) {
         case 1:
-            console.log("The month January has 31 days");
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            console.log(`The Month No.${monthNo} has 31 days.`);
             break;
         case 2:
-            console.log("The month Febraury has 28 days");
-            break;
-        case 3:
-            console.log("The month March has 31 days");
+            console.log(`The month No. ${monthNo} has 28 days(asssuming non-leap year)`);
             break;
         case 4:
-            console.log("The month April has 30 days");
-            break;
-        case 5:
-            console.log("The month May has 31 days");
-            break;
         case 6:
-            console.log("The month June has 30 days");
-            break;
-        case 7:
-            console.log("The month July has 31 days");
-            break;
-        case 8:
-            console.log("The month August has 31 days");
-            break;
         case 9:
-            console.log("The month September has 30 days");
-            break;
-        case 10:
-            console.log("The month October has 31 days");
-            break;
         case 11:
-            console.log("The month November has 30 days");
-            break;
-        case 12:
-            console.log("The month December has 31 days");
+            console.log(`The month No. ${monthNo} has 30 days`);
             break;
         default:
             console.log("Please enter a valid month number between 1 and 12.");
@@ -211,10 +193,13 @@ let seconds = 3608;
 convertSeconds(seconds);
 // - Write a program that calculates the percentage.
 const calculatePercentage = (marks, totalMarks) => {
-    let percentage = (marks / totalMarks) * 100;
-    console.log(`if the user obtain ${marks} out of ${totalMark} , The user will get ${percentage.toFixed(2)} percentage`);
+    let obtainedMarks = Math.min(marks, totalMarks);
+    let totalMark = Math.max(marks, totalMarks);
+    let percentage = (obtainedMarks / totalMark) * 100;
+    console.log(`if the user obtain ${obtainedMarks} out of ${totalMark} , The user will get ${percentage.toFixed(2)} percentage`);
 };
-let obtainedMarks = 1044;
-let totalMark = 1100;
+;
+let obtainedMarks = 12000;
+let totalMark = 11000;
 calculatePercentage(obtainedMarks, totalMark);
 export {};
