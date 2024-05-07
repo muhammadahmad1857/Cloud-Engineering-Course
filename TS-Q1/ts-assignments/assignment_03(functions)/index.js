@@ -198,7 +198,6 @@ const calculatePercentage = (marks, totalMarks) => {
     let percentage = (obtainedMarks / totalMark) * 100;
     console.log(`if the user obtain ${obtainedMarks} out of ${totalMark} , The user will get ${percentage.toFixed(2)} percentage`);
 };
-;
 let obtainedMarks = 12000;
 let totalMark = 11000;
 calculatePercentage(obtainedMarks, totalMark);
