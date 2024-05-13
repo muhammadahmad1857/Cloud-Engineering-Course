@@ -20,6 +20,7 @@ console.log(insertAt(arr, 99, 8)); // if we give index that is not in range then
 
 // - Implement a simple shopping cart program using an array. Create functions to add items, remove items, and update quantities using the splice method. Print the cart's contents after each operation
 
+// type of each item in the array
 interface Item {
   name: string;
   quantity: number;
@@ -28,6 +29,7 @@ interface Item {
 
 const shoppingCart: Item[] = [];
 
+// function to store cart or add item in cart
 const addItem = (itemName: string, quantity: number, price: number): void => {
   const newItem: Item = {
     name: itemName,
@@ -38,6 +40,7 @@ const addItem = (itemName: string, quantity: number, price: number): void => {
   printCart();
 };
 
+// function to remove item
 const removeItem = (index: number): void => {
   if (index >= 0 && index < shoppingCart.length) {
     shoppingCart.splice(index, 1);
@@ -47,6 +50,7 @@ const removeItem = (index: number): void => {
   }
 };
 
+// function to update quantity
 const updateQuantity = (index: number, newQuantity: number): void => {
   if (index >= 0 && index < shoppingCart.length) {
     const newItem: Item = {
@@ -64,6 +68,7 @@ const updateQuantity = (index: number, newQuantity: number): void => {
   }
 };
 
+// function to printCart()
 const printCart = (): void => {
   console.log("Shopping Cart:");
   shoppingCart.forEach((item, index) => {
@@ -186,5 +191,3 @@ let numbers1: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
 console.log("before removing odd numbers", numbers1);
 console.log("after removing odd numbers", removeOdd(numbers1));
-
-

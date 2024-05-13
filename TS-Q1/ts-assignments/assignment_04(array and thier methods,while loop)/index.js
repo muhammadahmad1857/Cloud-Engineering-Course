@@ -11,6 +11,7 @@ let arr = ["hello", 2, "world!", 4, 3];
 console.log(insertAt(arr, 2, "goodbye"));
 console.log(insertAt(arr, 99, 8)); // if we give index that is not in range then it insert the value at last index
 const shoppingCart = [];
+// function to store cart or add item in cart
 const addItem = (itemName, quantity, price) => {
     const newItem = {
         name: itemName,
@@ -20,6 +21,7 @@ const addItem = (itemName, quantity, price) => {
     shoppingCart.splice(shoppingCart.length, 0, newItem);
     printCart();
 };
+// function to remove item
 const removeItem = (index) => {
     if (index >= 0 && index < shoppingCart.length) {
         shoppingCart.splice(index, 1);
@@ -29,6 +31,7 @@ const removeItem = (index) => {
         console.log("Please enter a valid index");
     }
 };
+// function to update quantity
 const updateQuantity = (index, newQuantity) => {
     if (index >= 0 && index < shoppingCart.length) {
         const newItem = {
@@ -43,6 +46,7 @@ const updateQuantity = (index, newQuantity) => {
         console.log("Please enter a valid index!");
     }
 };
+// function to printCart()
 const printCart = () => {
     console.log("Shopping Cart:");
     shoppingCart.forEach((item, index) => {
