@@ -1,22 +1,21 @@
-// Create a function that takes an array, an index, and a value as parameters. Inside the function, use the splice method to insert the value at the specified index in the array. Return the modified array.
-
 const insertAt = (
   array: (string | number)[],
   index: number,
   value: string | number
-): (string | number)[] | string => {
-  if (index >= 0) {
+): (string | number)[] => {
+  if (index >= 0 && index <= array.length) {
     array.splice(index, 0, value);
     return array;
+  } else {
+    throw new Error("Please enter a valid index.");
   }
-  return "Please enter a valid index.";
 };
 
 // we give it type of (string | number)[] because user give any type of input.
 let arr: (string | number)[] = ["hello", 2, "world!", 4, 3];
 
-console.log(insertAt(arr, 2, "goodbye"));
-console.log(insertAt(arr, 99, 8)); // if we give index that is not in range then it insert the value at last index
+console.log(insertAt(arr, 2, "goodbye")); // ["hello", 2, "goodbye", "world!", 4, 3]
+console.log(insertAt(arr, 99, 8)); // Throws an error: Please enter a valid index. 
 
 // - Implement a simple shopping cart program using an array. Create functions to add items, remove items, and update quantities using the splice method. Print the cart's contents after each operation
 
