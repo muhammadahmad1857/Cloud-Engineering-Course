@@ -1,0 +1,12 @@
+{
+  "name": "assignment_05",
+  "version": "1.0.0",
+  "description": "- Write a program that uses filter to remove all negative numbers from an array of numbers",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
