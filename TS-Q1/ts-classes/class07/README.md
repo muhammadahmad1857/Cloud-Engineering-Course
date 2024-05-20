@@ -8,6 +8,9 @@ In this class, we will cover different types of loops in TypeScript and how to m
 
 - [map Method](#map-method)
 - [filter Method](#filter-method)
+- [Differences Between map, forEach, and filter](#differences-between-map-foreach-and-filter)
+
+- [Callback Function](#callback-function)
 - [Differences Between Array Loops and Other Loops](#differences-between-array-loops-and-other-loops)
 - [Function as a Parameter](#function-as-a-parameter)
 
@@ -142,6 +145,64 @@ console.log(evenNumbers);
 ```
 
 The `filter` method is useful when you want to create a new array with only the elements that meet a certain condition.
+
+Here's the updated section with the differences between `map`, `forEach`, and `filter`, as well as an explanation of callback functions:
+
+---
+
+## Differences Between `map`, `forEach`, and `filter`
+
+### `map` Method
+
+- **Purpose**: The `map` method creates a new array by applying a function to each element of the original array.
+- **Return Value**: It returns a new array with the same length as the original array, where each element is the result of applying the provided function to the corresponding element of the original array.
+- **Example**:
+  ```typescript
+  const numbers: number[] = [1, 2, 3, 4, 5];
+  const squared: number[] = numbers.map((number) => number * number);
+  console.log(squared);
+  // Output: [1, 4, 9, 16, 25]
+  ```
+
+### `forEach` Method
+
+- **Purpose**: The `forEach` method executes a provided function once for each array element.
+- **Return Value**: It doesn't return a new array. Instead, it simply iterates over the array and executes the provided function for each element.
+- **Example**:
+  ```typescript
+  const numbers: number[] = [1, 2, 3, 4, 5];
+  numbers.forEach((number) => console.log(number));
+  // Output: 1, 2, 3, 4, 5 (printed sequentially)
+  ```
+
+### `filter` Method
+
+- **Purpose**: The `filter` method creates a new array with all elements that pass the test implemented by the provided function.
+- **Return Value**: It returns a new array containing only the elements for which the provided function returns `true`.
+- **Example**:
+  ```typescript
+  const numbers: number[] = [1, 2, 3, 4, 5];
+  const evenNumbers = numbers.filter((number) => number % 2 === 0);
+  console.log(evenNumbers);
+  // Output: [2, 4]
+  ```
+
+## Callback Function
+
+A callback function is a function that is passed as an argument to another function, with the intention of being executed later. In the context of array methods like `map`, `forEach`, and `filter`, the callback function is applied to each element of the array.
+
+For example, in the `map` method:
+
+```typescript
+const numbers: number[] = [1, 2, 3, 4, 5];
+const squared: number[] = numbers.map((number) => number * number);
+```
+
+The arrow function `(number) => number * number` is a callback function. It defines the operation to be performed on each element of the `numbers` array.
+
+---
+
+This section now includes the requested differences between `map`, `forEach`, and `filter`, as well as an explanation of callback functions. Let me know if you need further clarification or if there's anything else I can assist you with!
 
 ## Differences Between Array Loops and Other Loops
 

@@ -82,41 +82,39 @@
 // };
 // const data = nums.map(customFunction);
 // console.log("🚀 ~ data:", data);
-// const names = [
-//   "Ali",
-//   "Usman",
-//   "Azhar",
-//   "Naveed",
-//   "Abu Hurairah",
-//   "Ramzan",
-//   "Rizwan",
-//   "Sultan",
-//   "Mahad",
-//   "Zain",
-//   "Imran",
-// ];
-// const findName = (name: string) => {
-//   return name.length;
-// };
-// const namesLength = names.map((name: string) => {
-//   return name.length;
-// });
-// console.log("🚀 ~ namesLength:", namesLength);
-// const nums1 = [1, 2, 3, 4, 5, 6, 7];
-// const nums2 = [7, 6, 5, 4, 3, 2, 1];
-// const newArr = nums1.map((val: number, index: number) => {
-//   return val + nums2[index];
-// });
-// console.log("🚀 ~ newArr ~ newArr:", newArr);
-// ---------------------------------
-// Filter
-// const nums1 = [1, 2, 3, 4, 5, 6, 7];
-// const filteredArr = nums1.filter((val: number, index: number) => {
-//   if (index < 2) {
-//     return true;
-//   }
-// });
-// console.log("🚀 ~ filteredArr ~ filteredArr:", filteredArr);
+// Map Loop...
+// It is also a array method...
+// Returns New Array...
+// Do not Change Original Array...
+// Do not work on empty array...
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Syntax...
+let newNumbers = numbers.map((element, index) => {
+    return element * index;
+});
+console.log("newNumbers2", newNumbers);
+// / Filter Loop...
+// It is also a array method...
+// Returns New Array...
+// Do not Change Original Array...
+// Do not work on empty array...
+// Used to filter out array by applying conditions in call back function if condition is true then element will be added in new array...
+let numbers2 = [2, 4, 6, 8, 25, 24, 99, 56, 120, 23, 124];
+// Syntax...
+let newNumbers2 = numbers2.filter((element) => {
+    return element % 2 == 0;
+});
+console.log("newNumbers3", newNumbers2);
+// For Each loop...
+let numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Applying ForEach array method Also we can say it a array loop because it is specified for array...
+// Syntax...
+numbers3.forEach((element, index, refArray) => {
+    // If we want to apply a function on each element of array...
+    // We are to double each element of array...
+    console.log(element * 2);
+});
+// It always returns undefined...
 const names = [
     "Ali",
     "Usman",
