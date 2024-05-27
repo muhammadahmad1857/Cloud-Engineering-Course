@@ -1,6 +1,27 @@
+
 # m-atm-machine
 
 m-atm-machine is a Node.js package that simulates an ATM machine. It allows users to perform various banking operations such as deposit, withdrawal, balance inquiry, making transactions, and viewing transaction history.
+
+## Users
+
+Here are the details of the initial users available in the system:
+
+- **Name**: Ahmad Jawad
+  - **PIN**: 1234
+  - **ID**: 9876
+
+- **Name**: Abu Hurairah
+  - **PIN**: 4321
+  - **ID**: 6789
+
+- **Name**: Naveed
+  - **PIN**: 5678
+  - **ID**: 8765
+
+- **Name**: Abdul Wahaj
+  - **PIN**: 9876
+  - **ID**: 2345
 
 ## Installation
 
@@ -41,4 +62,7 @@ Follow the on-screen instructions to complete each operation.
 
 ## Author
 
-[m-atm-machine](https://github.com/ahmedjawad1857/PIAIC-Batch-60/tree/main/TS-Q1/node-projects/project_02_atm_machine) was created by [Your Name](https://github.com/ahmedjawad1857).
+[m-atm-machine](https://github.com/ahmedjawad1857/PIAIC-Batch-60/tree/main/TS-Q1/node-projects/project_02_atm_machine) was created by [Ahmed Jawad](https://github.com/ahmedjawad1857).
+
+---
+

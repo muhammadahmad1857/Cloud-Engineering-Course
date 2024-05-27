@@ -1,10 +1,14 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
+
 import inquirer from "inquirer";
+import chalk from "chalk";
 
-let balance: number = Math.floor(Math.random() * (20000 - 1000 + 1) + 1000);
-
-let id: number = 1234;
-let pin: number = 4321;
+interface User {
+  name: string;
+  pin: number;
+  balance: number;
+  id: number;
+}
 
 interface Transaction {
   type: string;
@@ -13,217 +17,274 @@ interface Transaction {
   balance: number;
 }
 
+let users: User[] = [
+  {
+    name: "Ahmad Jawad",
+    pin: 1234,
+    balance: 100000,
+    id: 9876,
+  },
+  {
+    name: "Abu Hurairah",
+    pin: 4321,
+    balance: 100000,
+    id: 6789,
+  },
+  {
+    name: "Naveed",
+    pin: 5678,
+    balance: 100000,
+    id: 8765,
+  },
+  {
+    name: "Abdul Wahaj",
+    pin: 9876,
+    balance: 100000,
+    id: 2345,
+  },
+];
+
+// Initialize random balances for users
+for (let user of users) {
+  user.balance = Math.floor(Math.random() * (20000 - 1000 + 1) + 1000);
+}
+
 const transactions: Transaction[] = [];
 
-const withdrawMoney = (amount: number) => {
-  if (amount > balance) {
-    console.log("Insufficient balance");
+const withdrawMoney = (amount: number, user: User): void => {
+  if (amount > user.balance) {
+    console.log(chalk.red("Insufficient balance"));
   } else {
-    balance -= amount;
+    user.balance -= amount;
     console.log(
-      `You withdraw $${amount} and your remaining balance is $${balance}`
+      chalk.green(
+        `You withdrew Rs. ${amount} and your remaining balance is Rs. ${user.balance}`
+      )
     );
     transactions.push({
       type: "withdrawal",
       amount: amount,
       date: new Date().toLocaleString("en-US", { hour12: true }),
-      balance: balance,
+      balance: user.balance,
     });
   }
 };
-const depositMoney = (amount: number) => {
+
+const depositMoney = (amount: number, user: User): void => {
   if (!amount) {
-    console.log("Please add an amount.");
+    console.log(chalk.red("Please add an amount."));
   } else {
-    balance += amount;
-    console.log(`You deposit $${amount} and your balance is $${balance}`);
+    user.balance += amount;
+    console.log(
+      chalk.green(
+        `You deposited Rs. ${amount} and your balance is Rs. ${user.balance}`
+      )
+    );
     transactions.push({
-      type: "Deposit",
+      type: "deposit",
       amount: amount,
       date: new Date().toLocaleString("en-US", { hour12: true }),
-      balance: balance,
+      balance: user.balance,
     });
   }
 };
-const checkBalance = () => {
-  console.log(`Your current balance is $${balance}`);
+
+const checkBalance = (user: User): void => {
+  console.log(chalk.blue(`Your current balance is Rs. ${user.balance}`));
 };
-const makeTransaction = (amount: number, receiverId: number) => {
-  if (String(receiverId).length === 4) {
-    if (amount > balance) {
-      console.log("Insufficient funds.");
+
+const makeTransaction = (
+  amount: number,
+  receiverId: number,
+  user: User
+): void => {
+  let receiver = users.find((r) => r.id === receiverId);
+  if (receiver) {
+    if (amount > user.balance) {
+      console.log(chalk.red("Insufficient funds."));
     } else {
-      balance -= amount;
+      user.balance -= amount;
+      receiver.balance += amount;
 
       transactions.push({
-        type: "Transaction Sent",
+        type: "transaction sent",
         amount: amount,
         date: new Date().toLocaleString("en-US", { hour12: true }),
-        balance: balance,
+        balance: user.balance,
       });
-      console.log(`Transaction successful. Remaining balance: $${balance}`);
-      console.log(`$${amount} transferred to user with ID ${receiverId}`);
+      console.log(
+        chalk.green(
+          `Transaction successful. Remaining balance: Rs. ${user.balance}`
+        )
+      );
+      console.log(
+        chalk.green(`Rs. ${amount} transferred to user with ID ${receiverId}`)
+      );
     }
   } else {
-    console.log("Invalid recieverId\nId must have 4 characters");
+    console.log(chalk.red("Invalid receiver ID"));
   }
 };
 
-const changePin = (newPin: number) => {
+const changePin = (newPin: number, user: User): void => {
   if (String(newPin).length === 4) {
-    if (newPin === pin) {
-      console.log("This is yout last pin.");
+    if (newPin === user.pin) {
+      console.log(chalk.red("This is your last pin."));
     } else {
-      console.log("Your pin is updated!");
-      pin = newPin;
+      user.pin = newPin;
+      console.log(chalk.green("Your pin is updated!"));
     }
   } else {
-    console.log("Your pin length must be equal to 4");
+    console.log(chalk.red("Your pin length must be equal to 4"));
   }
 };
-const viewTransaction = () => {
-  console.log("\nTransaction History:");
-  transactions.forEach((transaction: Transaction, index: number) => {
-    console.log(
-      `${index + 1}. ${transaction.type} of $${transaction.amount} on ${
-        transaction.date
-      } and your updated balance is $${transaction.balance}`
-    );
-  });
+
+const viewTransaction = (): void => {
+  if (transactions.length === 0) {
+    console.log(chalk.yellow("\nNo transactions available."));
+  } else {
+    console.log(chalk.yellow("\nTransaction History:"));
+    transactions.forEach((transaction: Transaction, index: number) => {
+      console.log(
+        `${index + 1}. ${transaction.type} of Rs. ${transaction.amount} on ${
+          transaction.date
+        } and your updated balance is Rs. ${transaction.balance}`
+      );
+    });
+  }
 };
 
-const startAtm = async () => {
-  console.log("Welcome to the ATM");
-  console.log(`your current balance is: ${balance}`);
+const mainMenu = async (user: User): Promise<void> => {
+  const choices = await inquirer.prompt([
+    {
+      type: "list",
+      name: "option",
+      message: "Please select an option",
+      choices: [
+        { name: "Deposit Money", value: "deposit" },
+        { name: "Withdraw Money", value: "withdraw" },
+        { name: "Check Balance", value: "checkBalance" },
+        { name: "Make Transaction", value: "makeTransaction" },
+        { name: "View Transaction", value: "viewTransaction" },
+        { name: "Update your pin", value: "updatePin" },
+        { name: "Exit", value: "exit" },
+      ],
+    },
+  ]);
 
-  console.log("Please select an option");
-  while (true) {
-    const choices = await inquirer.prompt([
-      {
-        type: "list",
-        name: "option",
-        message: "Please select an option",
-        choices: [
-          {
-            name: "Deposit Money",
-            value: "deposit",
-          },
-          {
-            name: "Withdraw Money",
-            value: "withdraw",
-          },
-          {
-            name: "Check Balance",
-            value: "checkBalance",
-          },
-          {
-            name: "Make Transaction",
-            value: "makeTransaction",
-          },
-          {
-            name: "View Transaction",
-            value: "viewTransaction",
-          },
-          {
-            name: "Update your pin",
-            value: "updatePin",
-          },
-          {
-            name: "Exit",
-            value: "exit",
-          },
-        ],
-      },
-    ]);
+  switch (choices.option) {
+    case "deposit":
+      const depositAmount = await inquirer.prompt({
+        type: "number",
+        name: "amount",
+        message: "How much would you like to deposit?",
+      });
+      depositMoney(depositAmount.amount, user);
+      break;
 
-    switch (choices.option) {
-      case "deposit":
-        const amount = await inquirer.prompt({
+    case "withdraw":
+      const withdrawAmount = await inquirer.prompt({
+        type: "number",
+        name: "amount",
+        message: "How much would you like to withdraw?",
+      });
+      withdrawMoney(withdrawAmount.amount, user);
+      break;
+
+    case "checkBalance":
+      checkBalance(user);
+      break;
+
+    case "makeTransaction":
+      const transactionDetail = await inquirer.prompt([
+        {
+          type: "number",
+          name: "receiverId",
+          message:
+            "What is the ID of the user you would like to send the money to?",
+        },
+        {
           type: "number",
           name: "amount",
-          message: "How much would you like to deposit?  ",
-        });
-        depositMoney(amount.amount);
-        break;
-      case "withdraw":
-        const amount2 = await inquirer.prompt({
-          type: "number",
-          name: "amount",
-          message: "How much would you like to withdraw?  ",
-        });
-        withdrawMoney(amount2.amount);
-        break;
-      case "checkBalance":
-        checkBalance();
-        break;
-      case "makeTransaction":
-        const transactionDetail = await inquirer.prompt([
-          {
-            type: "number",
-            name: "receiverId",
-            message:
-              "What is the ID of the user you would like to send the money to?  ",
-          },
-          {
-            type: "number",
-            name: "amount",
-            message: "How much money would you like to send?  ",
-          },
-        ]);
-        makeTransaction(transactionDetail.amount, transactionDetail.receiverId);
-        break;
-      case "viewTransaction":
-        viewTransaction();
-        break;
-      case "updatePin":
-        const { oldPin } = await inquirer.prompt({
-          type: "number",
-          name: "oldPin",
-          message: "Please enter your old pin.  ",
-        });
-        if (oldPin === pin) {
-          const newPin = await inquirer.prompt({
-            type: "number",
-            name: "newPin",
-            message: "Please enter your new pin.  ",
-          });
-          changePin(newPin.newPin);
-        } else {
-          console.log(`Invalid pin.`);
-          console.log(`You are exiting atm...`);
-          process.exit();
-        }
+          message: "How much money would you like to send?",
+        },
+      ]);
+      makeTransaction(
+        transactionDetail.amount,
+        transactionDetail.receiverId,
+        user
+      );
+      break;
 
-        break;
+    case "viewTransaction":
+      viewTransaction();
+      break;
 
-      case "exit":
-        console.log("Thank you for using the ATM");
+    case "updatePin":
+      const { oldPin } = await inquirer.prompt({
+        type: "number",
+        name: "oldPin",
+        message: "Please enter your old pin: ",
+      });
+      if (oldPin === user.pin) {
+        const newPin = await inquirer.prompt({
+          type: "number",
+          name: "newPin",
+          message: "Please enter your new pin: ",
+        });
+        changePin(newPin.newPin, user);
+      } else {
+        console.log(chalk.red("Invalid pin."));
+        console.log(chalk.blue("You are exiting ATM..."));
         process.exit();
-      default:
-        console.log("Please select a valid option");
-        break;
-    }
+      }
+      break;
+
+    case "exit":
+      console.log(chalk.blue("Thank you for using the ATM"));
+      process.exit();
+
+    default:
+      console.log(chalk.red("Please select a valid option"));
+      break;
+  }
+  await mainMenu(user); // Call the menu again for continuous interaction
+};
+
+const login = async (): Promise<void> => {
+  const loginQuestions = await inquirer.prompt([
+    {
+      type: "input",
+      name: "userName",
+      message: "Please enter your user name: ",
+      validate: (input: string) =>
+        input.length > 2 ? true : "Please enter your user name",
+    },
+    {
+      type: "password",
+      name: "userPin",
+      message: "Please enter your PIN number: ",
+      mask: "*",
+      validate: (input: number) =>
+        String(input).length === 4 ? true : "Your pin must be 4 characters",
+    },
+  ]);
+
+  const userPin: number = Number(loginQuestions.userPin);
+  const userName: string = loginQuestions.userName;
+  const userLoggedIn = users.find(
+    (user) =>
+      user.name.toLowerCase().trim() === userName.toLowerCase().trim() &&
+      user.pin === userPin
+  );
+
+  if (userLoggedIn) {
+    console.log(chalk.green(`Welcome back ${userLoggedIn.name}`));
+    console.log(chalk.blue("Please select an option"));
+    await mainMenu(userLoggedIn);
+  } else {
+    console.log(chalk.red("Your ID or PIN is invalid."));
   }
 };
 
-const loginQuestions = await inquirer.prompt([
-  {
-    type: "number",
-    name: "userId",
-    message: "Please enter user ID.  ",
-  },
-  {
-    type: "number",
-    name: "userPin",
-    message: "Please enter your PIN number.  ",
-  },
-]);
-const userPin: number = loginQuestions.userPin;
-const userId: number = loginQuestions.userId;
-
-if (userId === id && userPin === pin) {
-  console.log("Login successful");
-  startAtm();
-} else {
-  console.log("Your id or pin is invalid.");
-}
+login();
