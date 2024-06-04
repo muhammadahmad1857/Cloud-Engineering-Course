@@ -1,6 +1,6 @@
 {
   "name": "m-simple-calculator",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A simple Calculator with Typescript,Node.js and inquirer",
   "main": "index.js",
   "bin": "index.js",
@@ -11,9 +11,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "chalk-animation": "^2.0.3",
     "inquirer": "^9.2.16"
   },
   "devDependencies": {
+    "@types/chalk-animation": "^1.6.3",
     "@types/inquirer": "^9.0.7"
   }
 }
