@@ -12,7 +12,7 @@ This repository serves as a resource for individuals learning TypeScript. Each a
 
 ## My other repostories links are as follows:
 
-1. [Node projects](https://github.com/ahmedjawad1857/node_projects)
-2. [TypeScript classes by PIAIC](https://github.com/ahmedjawad1857/ts-classes-PIAIC)
+1. [Node projects](https://github.com/ahmedjawad1857/Cloud-Engineering-Course/tree/main/TS-Q1/node-projects)
+2. [TypeScript classes by PIAIC](https://github.com/ahmedjawad1857/Cloud-Engineering-Course/tree/main/TS-Q1/ts-classes)
 
 Thanks for seeing my repositories.
