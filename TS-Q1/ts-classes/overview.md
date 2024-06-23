@@ -2365,7 +2365,6 @@ After installing GitHub Desktop, set it up to start managing your Git repositori
 
 ## Pushing Code Using GitHub Desktop
 
-````markdown
 GitHub Desktop simplifies the process of committing and pushing changes to GitHub:
 
 1. **Open GitHub Desktop:**
