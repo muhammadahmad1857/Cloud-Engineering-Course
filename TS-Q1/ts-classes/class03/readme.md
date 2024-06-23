@@ -1,4 +1,4 @@
-# class03(PIAIC)
+# class03: concatenation and operators and conditional Statements
 
 In this class we study the following contents:
 

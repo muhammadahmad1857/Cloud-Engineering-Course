@@ -113,38 +113,39 @@ To push your local code to a remote repository on GitHub using the command line,
 
 2. **Navigate to Your Project Directory:**
 
-   ```bash
+```bash
    cd /path/to/your/project
-   ```
+```
 
 3. **Initialize a Git Repository (if not already initialized):**
 
-   ```bash
+```bash
    git init
-   ```
+```
 
 4. **Add Files to the Staging Area:**
 
-   ```bash
+```bash
    git add .
-   ```
+```
 
 5. **Commit Changes:**
 
-   ```bash
+```bash
    git commit -m "Initial commit"
-   ```
+```
 
 6. **Add Remote Repository URL:**
 
-   ```bash
+```bash
    git remote add origin <repository_url>
-   ```
+```
 
 7. **Push Changes to GitHub:**
-   ```bash
+
+```bash
    git push -u origin main
-   ```
+```
 
 ### Mac/Linux
 
@@ -159,6 +160,11 @@ Git config commands need to be run only once during initialization to set global
 
 ```bash
 git config --global user.name "Your Name"
+```
+
+And then run the following command
+
+```bash
 git config --global user.email "your.email@example.com"
 ```
 
@@ -224,6 +230,7 @@ After installing GitHub Desktop, set it up to start managing your Git repositori
 
 ## Pushing Code Using GitHub Desktop
 
+````markdown
 GitHub Desktop simplifies the process of committing and pushing changes to GitHub:
 
 1. **Open GitHub Desktop:**
@@ -235,14 +242,136 @@ GitHub Desktop simplifies the process of committing and pushing changes to GitHu
    - Make changes to your project files.
 
 3. **Commit Changes:**
-   - Write a summary of the changes
-   
+
+   - Write a summary of the changes made.
+   - Click the "Commit to main" button.
+
+4. **Push Changes to GitHub:**
+
+   - Click the "Push origin" button to push your commits to the remote repository.
+
+## Pulling Code Using Command Line
+
+To pull the latest changes from a remote repository using the command line:
+
+### Windows
+
+1. **Open Git Bash or Command Prompt:**
+
+   - Git Bash is recommended for a consistent experience with Unix commands on Windows.
+
+2. **Navigate to Your Project Directory:**
+
+```bash
+   cd /path/to/your/project
+```
+
+3. **Pull Changes from the Remote Repository:**
+
+```bash
+   git pull origin main
+```
+
+### Mac/Linux
+
+Follow similar steps as Windows, using Terminal for Git commands:
+
+1. Open Terminal and navigate to your project directory.
+2. Pull changes using the same command as outlined for Windows.
+
+## Pulling Code Using GitHub Desktop
+
+GitHub Desktop makes it easy to pull the latest changes from the remote repository:
+
+1. **Open GitHub Desktop:**
+
+   - Select the repository you want to work with.
+
+2. **Pull Changes:**
+
+   - Click the "Fetch origin" button to fetch the latest changes.
+   - Click the "Pull origin" button to pull the changes into your local repository.
+
+## Cloning a Repository Using Command Line
+
+To clone a remote repository to your local machine using the command line:
+
+### Windows
+
+1. **Open Git Bash or Command Prompt:**
+
+   - Git Bash is recommended for a consistent experience with Unix commands on Windows.
+
+2. **Navigate to the Desired Directory:**
+
+```bash
+   cd /path/to/desired/directory
+```
+
+3. **Clone the Repository:**
+
+```bash
+   git clone <repository_url>
+```
+
+### Mac/Linux
+
+Follow similar steps as Windows, using Terminal for Git commands:
+
+1. Open Terminal and navigate to the desired directory.
+2. Clone the repository using the same command as outlined for Windows.
+
+## Cloning Repository Using VS Code
+
+VS Code allows you to clone a repository directly from the editor:
+
+1. **Open VS Code:**
+
+   - Ensure you have VS Code installed. If not, download it from [Visual Studio Code website](https://code.visualstudio.com/).
+
+2. **Clone the Repository:**
+
+   - Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`).
+   - Type "Git: Clone" and press Enter.
+   - Enter the repository URL and choose the local directory to clone into.
+
+## Cloning Repository Using GitHub Desktop
+
+GitHub Desktop makes it easy to clone a repository to your local machine:
+
+1. **Open GitHub Desktop:**
+
+   - Click "File" > "Clone Repository."
+
+2. **Select the Repository:**
+
+   - Choose the repository you want to clone from GitHub.com.
+   - Choose the local path where you want to save the repository and click "Clone."
+
+---
+
+## Resolving Line Ending Warnings
+
+Sometimes, an error occurs that says:
+
+```bash
+warning: in the working copy of 'fileName.extension', LF will be replaced by CRLF the next time Git touches it
+```
+
+To resolve this issue, run the following command:
+
+```bash
+git config --global core.autocrlf true
+```
+
+Then, proceed with the usual Git commands from `git add .` to `git push origin`.
+
+---
+
 ## Contact
 
 Muhammad Ahmad
 
-- **LinkedIn**: https://www.linkedin.com/in/muhammad-ahmad-jawad-a780512bb/
-- **Github**: https://github.com/ahmedjawad1857
-- **Email Me At**: <a href="mailto:ahmedjawad1857@gmail.com">ahmedjawad1857@gmail.com</a><br>
-
-**project-link**: https://github.com/ahmedjawad1857/simple-calculator
+- **LinkedIn**: [Muhammad Ahmad Jawad](https://www.linkedin.com/in/muhammad-ahmad-jawad-a780512bb/)
+- **GitHub**: [ahmedjawad1857](https://github.com/ahmedjawad1857)
+- **Email Me At**: <a href="mailto:ahmedjawad1857@gmail.com">ahmedjawad1857@gmail.com</a>

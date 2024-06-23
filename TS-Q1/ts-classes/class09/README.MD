@@ -1,3 +1,4 @@
+
 # Class 09 - Study Topics
 
 ## Overview
@@ -17,14 +18,15 @@ In today's class, we covered the following topics. Click on the links to navigat
 11. [What is a Promise](#11-what-is-a-promise)
 12. [Some Basics of Object-Oriented Programming (OOP)](#12-some-basics-of-object-oriented-programming-oop)
 13. [Why We Use Object-Oriented Programming (OOP) Instead of Simple Objects](#13-why-we-use-object-oriented-programming-oop-instead-of-simple-objects)
-14. [External Links](#external-links)
+14. [What is Inquirer](#14-what-is-inquirer)
+15. [External Links](#external-links)
 
 ## Topics Covered in Today's Class
 
 ### 1. What is npm
 **npm (Node Package Manager)** is a package manager for JavaScript, widely used for managing dependencies in Node.js projects. It allows developers to install, share, and manage libraries and tools.
 
-For more details, visit the [npm documentation](https://www.npmjs.com/package/chalk?activeTab=readme).
+For more details, visit the [npm documentation](https://docs.npmjs.com/).
 
 ### 2. What is chalk
 **Chalk** is a library used for styling console output in Node.js. It allows developers to easily add colors and styles to their terminal strings.
@@ -55,7 +57,9 @@ For more details, visit the [Chalk documentation](https://www.npmjs.com/package/
 ### 6. What are Event Loops
 **Event loops** are mechanisms that manage the execution of asynchronous operations in JavaScript, handling events and callbacks.
 
-For more details on how the event loop works, watch this [Event loop working video](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
+For a visual explanation, watch these videos:
+- [Event loop working (YouTube)](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+- [Understanding the Event Loop (YouTube Short)](https://youtube.com/shorts/m8biTN2fBEs?si=H3tQFQAWljq9r2_V)
 
 ### 7. What is setTimeout
 **setTimeout** is a function that executes a specified function after a set delay.
@@ -126,8 +130,23 @@ Object-Oriented Programming (OOP) is a programming paradigm based on the concept
 ### 13. Why We Use Object-Oriented Programming (OOP) Instead of Simple Objects
 Object-Oriented Programming (OOP) is preferred over simple objects because it provides a clear structure for programs, making it easier to manage complexity through encapsulation, inheritance, and polymorphism. It promotes code reuse and modularity, leading to more maintainable and scalable software.
 
+### 14. What is Inquirer
+**Inquirer** is a powerful library for Node.js that facilitates user input via the command line. It provides a set of common interactive prompts.
+
+**Installation:**
+```sh
+npm install inquirer
+```
+
+For more details, visit the [Inquirer documentation](https://www.npmjs.com/package/inquirer).
+
 ## External Links
 
 1. [Promise detail](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 2. [Chalk and npm detail](https://www.npmjs.com/package/chalk?activeTab=readme)
-3. [Event loop working video](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+3. [Event loop working (YouTube)](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+4. [Understanding the Event Loop (YouTube Short)](https://youtube.com/shorts/m8biTN2fBEs?si=H3tQFQAWljq9r2_V)
+
+---
+
+This structure should help your students navigate through the topics covered in class effectively, with additional resources provided for deeper understanding.

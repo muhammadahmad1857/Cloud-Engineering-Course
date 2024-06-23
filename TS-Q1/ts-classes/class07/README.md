@@ -5,11 +5,13 @@ In this class, we will cover different types of loops in TypeScript and how to m
 - [for Loop](#for-loop)
 - [do-while Loop](#do-while-loop)
 - [Differences Between while Loops and do-while Loops](#difference-between-do-while-loops-and-while-loops)
+- [for...in Loop](#for-in-loop)
+- [for...of Loop](#for-of-loop)
 
 - [map Method](#map-method)
 - [filter Method](#filter-method)
+- [forEach Method](#foreach-method)
 - [Differences Between map, forEach, and filter](#differences-between-map-foreach-and-filter)
-
 - [Callback Function](#callback-function)
 - [Differences Between Array Loops and Other Loops](#differences-between-array-loops-and-other-loops)
 - [Function as a Parameter](#function-as-a-parameter)
@@ -100,92 +102,97 @@ The `do-while` loop is useful when you want to ensure that the loop body execute
 2. **Condition Check**: In a `while` loop, the condition is checked before the loop body executes. In a `do-while` loop, the condition is checked after the loop body executes.
 3. **Initialization**: Typically, the loop variable is initialized before entering a `while` loop, while it is often initialized after entering a `do-while` loop.
 
-## `map` Method
-
-The `map` method creates a new array by applying a function to each element of the original array.
-
-### Syntax
-
-```typescript
-array.map(callback(currentValue, index, array) {
-    // return element for newArray
-})
-```
-
-### Example
-
-```typescript
-const numbers = [1, 2, 3, 4, 5];
-const squared = numbers.map((number) => number * number);
-console.log(squared);
-// Output: [1, 4, 9, 16, 25]
-```
-
-The `map` method is useful for transforming each element of an array into something else, without modifying the original array.
-
-## `filter` Method
-
-The `filter` method creates a new array with all elements that pass the test implemented by the provided function.
-
-### Syntax
-
-```typescript
-array.filter(callback(currentValue, index, array) {
-    // return true to keep the element, false otherwise
-})
-```
-
-### Example
-
-```typescript
-const numbers = [1, 2, 3, 4, 5];
-const evenNumbers = numbers.filter((number) => number % 2 === 0);
-console.log(evenNumbers);
-// Output: [2, 4]
-```
-
-The `filter` method is useful when you want to create a new array with only the elements that meet a certain condition.
-
-Here's the updated section with the differences between `map`, `forEach`, and `filter`, as well as an explanation of callback functions:
+Sure, let's continue from the `for...in` loop and cover the remaining topics:
 
 ---
 
-## Differences Between `map`, `forEach`, and `filter`
+## `for...in` Loop
 
-### `map` Method
+The `for...in` loop iterates over all enumerable properties of an object. In TypeScript, it's commonly used to iterate over object keys.
 
-- **Purpose**: The `map` method creates a new array by applying a function to each element of the original array.
-- **Return Value**: It returns a new array with the same length as the original array, where each element is the result of applying the provided function to the corresponding element of the original array.
+### Syntax
+
+```typescript
+for (variable in object) {
+  // code block to be executed
+}
+```
+
+### Example
+
+```typescript
+const person = { name: "John", age: 30 };
+
+for (let key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+// Output: name: John, age: 30
+```
+
+The `for...in` loop is useful when you need to iterate over the properties of an object, such as when working with key-value pairs.
+
+## `for...of` Loop
+
+The `for...of` loop iterates over iterable objects (arrays, strings, etc.) and is preferred over `for...in` for arrays in TypeScript.
+
+### Syntax
+
+```typescript
+for (variable of iterable) {
+  // code block to be executed
+}
+```
+
+### Example
+
+```typescript
+const colors = ["red", "green", "blue"];
+
+for (let color of colors) {
+  console.log(color);
+}
+// Output: red, green, blue
+```
+
+The `for...of` loop simplifies iteration over arrays and other iterable objects by directly accessing their values, rather than indices or keys.
+
+## Differences Between `for...in` and `for...of` Loops
+
+### `for...in` Loop
+
+- **Purpose**: Iterates over enumerable properties of an object.
+- **Usage**: Commonly used to iterate over object keys or properties.
 - **Example**:
+
   ```typescript
-  const numbers: number[] = [1, 2, 3, 4, 5];
-  const squared: number[] = numbers.map((number) => number * number);
-  console.log(squared);
-  // Output: [1, 4, 9, 16, 25]
+  const person = { name: "John", age: 30 };
+
+  for (let key in person) {
+    console.log(`${key}: ${person[key]}`);
+  }
+  // Output: name: John, age: 30
   ```
 
-### `forEach` Method
+### `for...of` Loop
 
-- **Purpose**: The `forEach` method executes a provided function once for each array element.
-- **Return Value**: It doesn't return a new array. Instead, it simply iterates over the array and executes the provided function for each element.
+- **Purpose**: Iterates over iterable objects like arrays, strings, etc.
+- **Usage**: Preferred for iterating over values of iterable objects.
 - **Example**:
+
   ```typescript
-  const numbers: number[] = [1, 2, 3, 4, 5];
-  numbers.forEach((number) => console.log(number));
-  // Output: 1, 2, 3, 4, 5 (printed sequentially)
+  const colors = ["red", "green", "blue"];
+
+  for (let color of colors) {
+    console.log(color);
+  }
+  // Output: red, green, blue
   ```
 
-### `filter` Method
+### Key Differences
 
-- **Purpose**: The `filter` method creates a new array with all elements that pass the test implemented by the provided function.
-- **Return Value**: It returns a new array containing only the elements for which the provided function returns `true`.
-- **Example**:
-  ```typescript
-  const numbers: number[] = [1, 2, 3, 4, 5];
-  const evenNumbers = numbers.filter((number) => number % 2 === 0);
-  console.log(evenNumbers);
-  // Output: [2, 4]
-  ```
+- **Iterable Type**: `for...in` loops over object properties, while `for...of` loops over iterable values.
+- **Output**: `for...in` provides keys or properties, whereas `for...of` provides values directly.
+- **Compatibility**: `for...of` is not compatible with objects directly and is used mainly with arrays and other iterables.
 
 ## Callback Function
 
@@ -200,19 +207,15 @@ const squared: number[] = numbers.map((number) => number * number);
 
 The arrow function `(number) => number * number` is a callback function. It defines the operation to be performed on each element of the `numbers` array.
 
----
-
-This section now includes the requested differences between `map`, `forEach`, and `filter`, as well as an explanation of callback functions. Let me know if you need further clarification or if there's anything else I can assist you with!
-
 ## Differences Between Array Loops and Other Loops
 
 ### Traditional Loops (`for`, `do-while`)
 
 Traditional loops like `for` and `do-while` are more flexible and can be used for a variety of tasks beyond just iterating over arrays. They require manual index management and can directly mutate variables outside the loop scope.
 
-### Array Methods (`map`, `filter`)
+### Array Methods (`map`, `filter`, `forEach`)
 
-Array methods like `map` and `filter` are more concise and readable. They promote immutability by returning new arrays without modifying the original. They also align with functional programming paradigms, making code more predictable and easier to test.
+Array methods like `map`, `filter`, and `forEach` provide a more functional approach to working with arrays. They promote immutability by returning new arrays without modifying the original. These methods align with functional programming paradigms, making code more predictable and easier to test.
 
 ### Example Comparison
 
@@ -261,11 +264,3 @@ console.log(squareResult); // Output: 25
 ```
 
 In this example, the `applyFunction` function takes another function (`func`) and a value as parameters. It then applies the given function to the value and returns the result.
-
-## Conclusion
-
-In this class, we explored different ways to iterate over data and manipulate arrays in TypeScript. Understanding when to use each type of loop or array method is crucial for writing efficient and readable code.
-
-```
-
-```
