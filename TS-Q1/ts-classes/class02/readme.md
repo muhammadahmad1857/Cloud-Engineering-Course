@@ -1,4 +1,4 @@
-# TypeScript Project: Variables, Operators, and Increment/Decrement
+# Class02: TypeScript Variables, Operators, and Increment/Decrement
 
 ## Introduction
 
