@@ -18,22 +18,6 @@ type Operation =
   | "Factorial"
   | "Exit";
 
-const operations: Operation[] = [
-  "Addition",
-  "Subtraction",
-  "Multiplication",
-  "Division",
-  "Sine",
-  "Cosine",
-  "Tangent",
-  "Logarithm",
-  "Square Root",
-  "Exponentiation",
-  "Power",
-  "Factorial",
-  "Exit",
-];
-
 const basicOperations: { [key: string]: (a: number, b: number) => number } = {
   Addition: (a, b) => a + b,
   Subtraction: (a, b) => a - b,
@@ -66,6 +50,42 @@ const scientificOperations: {
   // Display the welcome message
   console.log(chalk.green("Welcome to the scientific calculator console app."));
   while (true) {
+    const { calculatorType } = await inquirer.prompt<{ calculatorType: string }>([
+      {
+        type: "list",
+        name: "calculatorType",
+        message: "Choose the type of calculator:",
+        choices: ["Simple Calculator", "Scientific Calculator", "Exit"],
+      },
+    ]);
+
+    if (calculatorType === "Exit") {
+      // Add animated message for a stylish exit
+      const exitMessage = chalkAnimation.rainbow("Exiting the program!");
+      exitMessage.start();
+
+      // After a brief delay, stop the animated message
+      setTimeout(() => exitMessage.stop(), 1000);
+      break;
+    }
+
+    let operations: Operation[];
+    if (calculatorType === "Simple Calculator") {
+      operations = ["Addition", "Subtraction", "Multiplication", "Division", "Exit"];
+    } else {
+      operations = [
+        "Sine",
+        "Cosine",
+        "Tangent",
+        "Logarithm",
+        "Square Root",
+        "Exponentiation",
+        "Power",
+        "Factorial",
+        "Exit",
+      ];
+    }
+
     const { operation } = await inquirer.prompt<{ operation: Operation }>([
       {
         type: "list",
