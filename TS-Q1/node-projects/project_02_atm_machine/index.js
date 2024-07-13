@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
+import chalkAnimation from "chalk-animation";
 let users = [
     {
         name: "Ahmad Jawad",
@@ -66,6 +67,10 @@ const checkBalance = (user) => {
     console.log(chalk.blue(`Your current balance is Rs. ${user.balance}`));
 };
 const makeTransaction = (amount, receiverId, user) => {
+    if (receiverId === user.id) {
+        console.log(chalk.red("You cannot transfer money to your own account."));
+        return;
+    }
     let receiver = users.find((r) => r.id === receiverId);
     if (receiver) {
         if (amount > user.balance) {
@@ -189,8 +194,12 @@ const mainMenu = async (user) => {
             }
             break;
         case "exit":
-            console.log(chalk.blue("Thank you for using the ATM"));
-            process.exit();
+            const endRainbow = chalkAnimation.rainbow("Thank you for using the ATM");
+            setTimeout(() => {
+                endRainbow.stop();
+                process.exit();
+            }, 2000);
+            break;
         default:
             console.log(chalk.red("Please select a valid option"));
             break;
@@ -218,12 +227,22 @@ const login = async () => {
     const userLoggedIn = users.find((user) => user.name.toLowerCase().trim() === userName.toLowerCase().trim() &&
         user.pin === userPin);
     if (userLoggedIn) {
-        console.log(chalk.green(`Welcome back ${userLoggedIn.name}`));
-        console.log(chalk.blue("Please select an option"));
-        await mainMenu(userLoggedIn);
+        const welcomeRainbow = chalkAnimation.rainbow(`Welcome back ${userLoggedIn.name}`);
+        setTimeout(() => {
+            welcomeRainbow.stop();
+            console.log(chalk.blue("Please select an option"));
+            mainMenu(userLoggedIn);
+        }, 2000);
     }
     else {
         console.log(chalk.red("Your ID or PIN is invalid."));
     }
 };
-login();
+const start = async () => {
+    const startRainbow = chalkAnimation.rainbow("Welcome to the ATM!");
+    setTimeout(() => {
+        startRainbow.stop();
+        login();
+    }, 2000);
+};
+start();
