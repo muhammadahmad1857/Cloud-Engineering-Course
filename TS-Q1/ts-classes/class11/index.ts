@@ -1,4 +1,4 @@
-import data from "./data.json" assert { type: "json" }; // see what is JSON in readme.md
+import data from "./data.json" with { type: "json" }; // see what is JSON in readme.md
 
 console.log(data);
 
