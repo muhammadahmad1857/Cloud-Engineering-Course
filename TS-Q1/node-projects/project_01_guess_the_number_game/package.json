@@ -1,6 +1,6 @@
 {
   "name": "m-guess-the-number-game",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Guess The Number Game with TypeScript,Node.js and inquirer.js ",
   "main": "index.js",
   "bin": "index.js",
@@ -11,9 +11,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "chalk-animation": "^2.0.3",
     "inquirer": "^9.2.16"
   },
   "devDependencies": {
+    "@types/chalk-animation": "^1.6.3",
     "@types/inquirer": "^9.0.7"
   }
 }
