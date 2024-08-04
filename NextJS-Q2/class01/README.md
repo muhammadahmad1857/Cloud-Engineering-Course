@@ -16,13 +16,14 @@
 - [Why We Need 6 Types of Heading](#why-we-need-6-types-of-heading)
 - [Difference Between `.tsx`, `.jsx`, and `.js` Files](#difference-between-tsx-jsx-and-js-files)
 - [Difference Between Inline and Block-Level Elements](#difference-between-inline-and-block-level-elements)
+- [How to Run the Server](#how-to-run-the-server)
 
 ## How to Create a Next.js App
 
 To create a new Next.js project, use the command:
 
 ```bash
-npx create-next-app@latest
+npx create-next-app@latest my-app
 ```
 
 You'll be prompted with a series of questions to set up your project. Below are the questions and explanations:
@@ -176,9 +177,9 @@ In the incorrect example, the `<h1>` and `<p>` tags are not wrapped in a single 
 
 - **Convention**: Involves following established best practices and standard ways of doing things. It reduces the need for configuration by providing a standard approach that most developers follow. Convention over configuration aims to minimize decision-making and boilerplate code.
 
-## Differences Between Web 1
+## Differences Between Web 1.
 
-.0, Web 2.0, and Web 3.0
+0, Web 2.0, and Web 3.0
 
 - **Web 1.0 (The Static Web)**:
 
@@ -268,3 +269,67 @@ HTML provides six levels of headings, from `<h1>` to `<h6>`, to structure conten
 <!-- Inline Example -->
 <p>This is a <span style="color: red;">red</span> word in a paragraph.</p>
 ```
+
+## How to Run the Server
+
+### 1. **Install Dependencies**
+
+If you haven’t installed the project dependencies yet, navigate to your project directory and run:
+
+```bash
+npm install
+```
+
+or if you’re using Yarn:
+
+```bash
+yarn install
+```
+
+### 2. **Start the Development Server**
+
+To start the development server and see your Next.js application in action, use:
+
+```bash
+npm run dev
+```
+
+or if you’re using Yarn:
+
+```bash
+yarn dev
+```
+
+This command starts the development server at `http://localhost:3000` by default. You can open this URL in your web browser to view your application.
+
+### 3. **Build and Start for Production**
+
+If you want to run your Next.js application in production mode, follow these steps:
+
+1. **Build the Application**  
+   This command compiles and optimizes your application for production:
+
+```bash
+npm run build
+```
+
+or with Yarn:
+
+```bash
+yarn build
+```
+
+2. **Start the Production Server**  
+   After building the application, you can start the production server with:
+
+```bash
+npm start
+```
+
+or with Yarn:
+
+```bash
+yarn start
+```
+
+   This starts the server, and you can access your application at `http://localhost:3000`.
