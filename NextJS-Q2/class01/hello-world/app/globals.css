@@ -1,0 +1,12 @@
+body {
+  background-color: #000000e5;
+  color: #efefef;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::selection {
+  color: rgb(10, 87, 228);
+}
