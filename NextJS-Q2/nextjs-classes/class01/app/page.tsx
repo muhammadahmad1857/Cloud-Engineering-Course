@@ -21,7 +21,7 @@ export default function Home() {
         <h2>Inline Element</h2>
         <span className={styles.inline}>This is an inline element.</span>
         <span className={styles.inline}>
-          It does not start on a new line and only takes p as much width as
+          It does not start on a new line and only takes as much width as
           necessary.
         </span>
       </div>
