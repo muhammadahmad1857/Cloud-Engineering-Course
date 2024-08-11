@@ -27,13 +27,12 @@ export default function Home() {
       </div>
 
       <p className={styles.differenceExplanation}>
-        Block-level elements like <code>&lt;div&gt;</code> and{" "}
-        <code>&lt;p&gt;</code> typically start on a new line and stretch out to
-        the full width available. They create a "block" of content. Inline
-        elements, such as <code>&lt;span&gt;</code> and <code>&lt;a&gt;</code>,
-        only take up as much width as they need and do not break the flow of
-        content. They are used within block-level elements and do not start on a
-        new line.
+        Block-level elements like <code>div</code> and <code>p</code> typically
+        start on a new line and stretch out to the full width available. They
+        create a "block" of content. Inline elements, such as <code>span</code>{" "}
+        and <code>a</code>, only take up as much width as they need and do not
+        break the flow of content. They are used within block-level elements and
+        do not start on a new line.
       </p>
     </div>
   );

@@ -1,0 +1,149 @@
+/* Base Styles */
+:root {
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Fira Code", monospace;
+  --primary-color: #0d6efd;
+  --secondary-color: #adb5bd;
+  --background-color: #121212;
+  --text-color: #f8f9fa;
+  --border-radius: 8px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 100dvw;
+  padding: 2rem;
+  background: #343a40;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in-out 0.3s;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  animation: fadeIn 1s ease-in-out 0.6s;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  animation: fadeIn 1s ease-in-out 0.9s;
+}
+
+section p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in-out 1.2s;
+}
+
+.skillsTable {
+  width: 80%; /* Adjust width as needed */
+  margin: 0 auto; /* Center the table */
+  border: 2px solid var(--primary-color); /* Add border to the table */
+  border-radius: var(--border-radius); /* Optional: Rounded corners */
+  border-spacing: 0; /* Remove spacing between table cells */
+  animation: fadeIn 1s ease-in-out 1.5s;
+}
+
+.skillsTable th,
+.skillsTable td {
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  text-align: left;
+  background-color: #343a40;
+}
+
+.skillsTable th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.skillsTable td {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.skillsTable td:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section p,
+  .skillsTable th,
+  .skillsTable td {
+    font-size: 0.9rem;
+  }
+
+  .skillsTable {
+    width: 100%; /* Adjust table width for smaller screens */
+  }
+}
+.center {
+  /* margin: 20px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: red; */
+}
