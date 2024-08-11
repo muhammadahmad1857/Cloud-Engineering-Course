@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basics of HTML | CSS | JS</title>
+    <!-- internal CSS -->
+    <style>
+      /* GETTING ELEMENT BY TAG NAME */
+      h1 {
+        color: blue;
+        background-color: black;
+      }
+      /* GETTING ELEMENT BY ID  # IS COMPULSORY WITH ID NAME*/
+      #heading {
+        font-size: 2em;
+      }
+      .heading1 {
+        background: blue;
+        color: aliceblue;
+      }
+    </style>
+    <!-- linking external css we need external css because if we write both html and css in one file then the file become too long -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>heading 1</h1>
+    <h1>H1 NUMBER 2</h1>
+    <!-- id selector -->
+    <h2 id="heading">heading 2</h2>
+    <!-- inline css -->
+
+    <h3 style="background-color: red">heading 3</h3>
+    <!-- CLASS SELECTOR -->
+    <h4 class="heading1">heading 4</h4>
+    <h5>heading 5</h5>
+    <h6>heading 6</h6>
+
+    <button onclick="changeText()">
+      Click me to change the heading 2 text content
+    </button>
+
+    <!-- javascript internal...Note: if you try to write ts here it will give an error -->
+
+    <script>
+      // getting element by ID
+      const heading = document.getElementById("heading");
+      const originalText = heading.textContent;
+      const newText = "changed heading 2 text with javascript";
+
+      // CREATING A FUNCTION TO TOGGLE TEXTCONTENT OF HEADING ONCLICK
+      const changeText = () => {
+        heading.textContent = heading.textContent === originalText ? newText : originalText;
+      };
+    </script>
+  </body>
+</html>

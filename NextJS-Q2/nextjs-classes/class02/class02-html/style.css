@@ -1,0 +1,15 @@
+/* GETTING ELEMENT BY TAG NAME in external cs */
+h1 {
+  color: blue;
+  background-color: black;
+}
+/* GETTING ELEMENT BY ID in external css  # IS COMPULSORY WITH ID NAME*/
+#heading {
+  font-size: 2em;
+}
+/* GETTING ELEMENT BY Class NAME in external css . is required before class name */
+
+.heading1 {
+  background: blue;
+  color: aliceblue;
+}
