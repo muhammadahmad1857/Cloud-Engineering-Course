@@ -94,7 +94,7 @@ const HomePage = () => {
       <p className="flex items-center gap-3 font-semibold"><span className="line-through font-normal">$100.00 </span> $75.00</p>
     </div>
     <div>
-      <Image src="/horizantalbanner1.png" height={340} width={280} alt="horizantal banner model 1"  className="mob:scale-150 hover:scale-90 transition-transform duration-500" />
+      <Image src="/horizantalbanner1.png" height={340} width={280} alt="horizantal banner model 1"  className=" hover:scale-90 transition-transform duration-500" />
     </div>
   </div>
   
@@ -140,6 +140,27 @@ const HomePage = () => {
     
   )
  })}
+</div>
+{/* 
+<div>
+  <div></div>
+  <div>
+    <div>
+
+    </div>
+  </div>
+</div> */}
+
+{/* Subscribe to newsletter section */}
+
+
+<div className="flex flex-col items-center justify-center gap-4 mt-20 mb-20 font-[sora]">
+  <h1 className="font-bold text-3xl">Subscribe Our Newsletter</h1>
+  <p className="font-light text-base">Get the latest information and promo offers directly</p>
+  <div className="flex sm:flex-row flex-col max-sm:w-full gap-2 mt-2">
+    <input type="email" placeholder="Input Email Address" className="border border-[#808080] sm:w-80 w-full px-5 py-3"/>
+    <button className="bg-black text-white font-bold px-5 py-3 rounded-md hover:bg-[#2b2929] transition-colors duration-500">Get Started</button>
+  </div>
 </div>
     </div>
   );
