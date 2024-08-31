@@ -93,13 +93,13 @@ const HomePage = () => {
       <p className="flex items-center gap-3 font-semibold"><span className="line-through font-normal">$100.00 </span> $75.00</p>
     </div>
     <div>
-      <Image src="/horizantalbanner1.png" height={340} width={280} alt="horizantal banner model 1"  className="hover:scale-90 transition-transform duration-500" />
+      <Image src="/horizantalbanner1.png" height={340} width={280} alt="horizantal banner model 1"  className="mob:scale-150 hover:scale-90 transition-transform duration-500" />
     </div>
   </div>
   
   <div className="row-span-2 bg-[#D7D7D9] cursor-pointer order-4 md:order-3">
     <div className="p-4">
-      <p className="text-base">Flex Push Button Bomber</p>
+      <p className="text-base">Flex Push Button </p>
       <p className="flex items-center gap-3 font-semibold"><span className="line-through font-normal">$225.00</span> $190.00</p>
     </div>
     <div>
