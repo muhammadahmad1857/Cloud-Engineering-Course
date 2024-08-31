@@ -83,7 +83,7 @@ const HomePage = () => {
       <p>For the summer season</p>
     </div>
     <div>
-      <Image src="/event-banner-img1.png" height={200} width={260} alt="Banner model" className="hover:scale-110 transition-transform duration-500"/>
+      <Image src="/event-banner-img1.png" height={200} width={260} alt="Banner model" className="hover:scale-90 transition-transform duration-500"/>
     </div>
   </div>
   
@@ -93,7 +93,7 @@ const HomePage = () => {
       <p className="flex items-center gap-3 font-semibold"><span className="line-through font-normal">$100.00 </span> $75.00</p>
     </div>
     <div>
-      <Image src="/horizantalbanner1.png" height={340} width={280} alt="horizantal banner model 1"  className="hover:scale-110 transition-transform duration-500" />
+      <Image src="/horizantalbanner1.png" height={340} width={280} alt="horizantal banner model 1"  className="hover:scale-90 transition-transform duration-500" />
     </div>
   </div>
   
@@ -103,7 +103,7 @@ const HomePage = () => {
       <p className="flex items-center gap-3 font-semibold"><span className="line-through font-normal">$225.00</span> $190.00</p>
     </div>
     <div>
-      <Image src="/horizantalbanner2.png" height={340} width={280} alt="horizantal banner model 1" className="hover:scale-110 transition-transform duration-500"/>
+      <Image src="/horizantalbanner2.png" height={340} width={280} alt="horizantal banner model 1" className="hover:scale-90 transition-transform duration-500"/>
     </div>
   </div>
   
