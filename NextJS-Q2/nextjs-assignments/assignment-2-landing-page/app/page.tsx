@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FiShoppingCart } from "react-icons/fi";
 
 const HomePage = () => {
+  const products = [{img:"/product1.png",title:"Brushed Raglan Sweatshirt",price:"$195"},{img:"/product2.png",title:"Cameryn Sash Tie Dress",price:"$545"},{img:"/product3.png",title:"Flex Sweatshirt","price":"$175"}]
   return (
     <div className="mx-2 md:mx-10">
       <Navbar />
@@ -73,12 +74,12 @@ const HomePage = () => {
       </header>
 
       {/* Promotion section */}
-      <p className="text-[#0062F5] text-center text-xs">Promotions</p>
+      <p className="text-[#0062F5] text-center text-xs mt-20">Promotions</p>
       <h2 className="text font-[sora] text-center text-3xl font-bold">Our Promotion Events</h2>
-      <main className="gap-4 font-[sora] grid grid-cols-2 md:grid-cols-4 ">
+      <main className="gap-4 font-[sora] grid grid-cols-2 md:grid-cols-4 mt-5 ">
   
   <div className="flex justify-center sm:gap-32 bg-[#D6D6D8] items-center col-span-2 cursor-pointer order-1 md:order-1">
-    <div className="text-center ">
+    <div className="text-center px-2">
       <h1 className="uppercase font-bold sm:text-2xl text-xl text-nowrap">get up to <span className="font-extrabold sm:text-3xl text-2xl ">60%</span></h1>
       <p>For the summer season</p>
     </div>
@@ -115,6 +116,31 @@ const HomePage = () => {
   
 </main>
 
+
+{/* products page */}
+
+<p className="text-[#0062F5] text-center text-xs mt-20">Products</p>
+<h2 className="text font-[sora] text-center text-3xl font-bold">Check What We Have</h2>
+<div className="flex tab:flex-row flex-col tab:justify-between items-center  gap-5 mt-5">
+ {products.map(product =>{
+  return(
+      <div className="mob:w-96 w-full ">
+        <Image
+          src={product.img}
+          alt={product.title}
+          width={200}
+          height={200}
+          className="w-full h-full object-cover hover:scale-90 transition-transform duration-500  cursor-pointer"
+        />
+        <div>
+          <h3 className="text-base font-semibold">{product.title}</h3>
+          <p className="text-lg font-semibold ">{product.price}</p>
+        </div>
+      </div>
+    
+  )
+ })}
+</div>
     </div>
   );
 };

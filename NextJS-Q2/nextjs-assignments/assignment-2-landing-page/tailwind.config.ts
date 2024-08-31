@@ -18,10 +18,10 @@ const config: Config = {
         lg: "1024px",
         // => @media (min-width: 1024px) { ... }
 
-        // 'xl': '1280px',
-        // => @media (min-width: 1280px) { ... }
+      tab: '720px',
+        // => @media (min-width: 720px) { ... }
 
-        // '2xl': '1536px',
+        mob: '450px',
         // => @media (min-width: 1536px) { ... }
       },
     },
