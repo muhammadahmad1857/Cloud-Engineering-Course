@@ -124,7 +124,7 @@ const HomePage = () => {
 <div className="flex tab:flex-row flex-col tab:justify-between items-center  gap-5 mt-5">
  {products.map(product =>{
   return(
-      <div className="mob:w-96 w-full ">
+      <div className="mob:w-96 w-full " key={product.img}>
         <Image
           src={product.img}
           alt={product.title}
