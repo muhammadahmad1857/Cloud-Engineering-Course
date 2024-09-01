@@ -91,7 +91,7 @@ const Flex = () => {
       {/* flex-wrap */}
       <p>
         flex-wrap: This property will make the flex items wrap onto a new line
-        if there's not enough space along the main-axis.
+        if there&apos;s not enough space along the main-axis.
       </p>
       <div className="flex flex-wrap gap-4">
         <div className="text-center w-32 aspect-square bg-white cursor-pointer hover:bg-slate-200 transition-colors duration-300 rounded-full">
@@ -108,7 +108,7 @@ const Flex = () => {
       {/* flex-nowrap */}
       <p>
         flex-nowrap: This property is the default behavior of flexbox; it
-        doesn't wrap any elements even if the space is less, and items may
+        doesn&apos;t wrap any elements even if the space is less, and items may
         overflow.
       </p>
       <div className="flex flex-nowrap gap-4">
@@ -126,8 +126,8 @@ const Flex = () => {
       {/* flex-wrap-reverse */}
       <p>
         flex-wrap-reverse: This property will make the flex items wrap onto a
-        new line if there's not enough space along the main-axis, but it will
-        wrap them in reverse order.
+        new line if there&apos;s not enough space along the main-axis, but it
+        will wrap them in reverse order.
       </p>
       <div className="flex flex-wrap-reverse gap-4">
         <div className="text-center w-32 aspect-square bg-white cursor-pointer hover:bg-slate-200 transition-colors duration-300 rounded-full">

@@ -17,7 +17,7 @@ const Home = () => {
         teaches us about Flex and Grid layout
       </h2>
       <h3 className="text-lg font-semibold ">
-        That's why in today&apos;s class I maked two folders one for the{" "}
+        That&apos;s why in today&apos;s class I maked two folders one for the{" "}
         <Link
           href={
             "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout"
