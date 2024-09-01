@@ -4,33 +4,37 @@ import Image from "next/image";
 import { FiShoppingCart } from "react-icons/fi";
 
 const HomePage = () => {
-  const products = [{img:"/product1.png",title:"Brushed Raglan Sweatshirt",price:"$195"},{img:"/product2.png",title:"Cameryn Sash Tie Dress",price:"$545"},{img:"/product3.png",title:"Flex Sweatshirt","price":"$175"}]
+  const products = [
+    { img: "/product1.png", title: "Brushed Raglan Sweatshirt", price: "$195" },
+    { img: "/product2.png", title: "Cameryn Sash Tie Dress", price: "$545" },
+    { img: "/product3.png", title: "Flex Sweatshirt", price: "$175" },
+  ];
   return (
     <div className="mx-2 md:mx-10">
       <Navbar />
-      <header className="relative flex flex-col-reverse max-md:gap-10 md:flex-row items-center md:items-start md:justify-between mt-10 mb-16">
-        
+      <header className="relative mb-16 mt-10 flex flex-col-reverse items-center max-md:gap-10 md:flex-row md:items-start md:justify-between">
         {/* Content Section */}
-        <div className="flex-1 md:ml-8 text-center md:text-left flex flex-col justify-between h-[600px]">  {/* Match the height of the hero image */}
+        <div className="flex h-[600px] flex-1 flex-col justify-between text-center md:ml-8 md:text-left">
+          {" "}
+          {/* Match the height of the hero image */}
           <div>
-            <p className="h-10 w-32 mx-auto md:mx-0 bg-[#E1EDFF] content-center text-center text-[#0000FF] rounded-md">
+            <p className="mx-auto h-10 w-32 content-center rounded-md bg-[#E1EDFF] text-center text-[#0000FF] md:mx-0">
               Sale 70%
             </p>
-            <h1 className="mt-4 text-3xl md:text-5xl font-bold font-[sora] leading-tight">
+            <h1 className="mt-4 font-[sora] text-3xl font-bold leading-tight md:text-5xl">
               An Industrial Take on Streetwear
             </h1>
-            <p className="pt-4 text-base md:text-lg font-normal font-[sora]">
+            <p className="pt-4 font-[sora] text-base font-normal md:text-lg">
               Anyone can beat you but no one can beat your outfit as long as you
               wear Dine outfits.
             </p>
-            <button className="mt-8 px-6 py-3 bg-black text-white rounded-lg transition-colors duration-300 hover:bg-gray-800">
-              <FiShoppingCart className="inline mr-2 h-6 w-6" />
+            <button className="mt-8 rounded-lg bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
+              <FiShoppingCart className="mr-2 inline h-6 w-6" />
               Start Shopping
             </button>
           </div>
-
           {/* Container for Brand Logos */}
-          <div className="mt-auto flex flex-wrap justify-center md:justify-start gap-6 pt-10">
+          <div className="mt-auto flex flex-wrap justify-center gap-6 pt-10 md:justify-start">
             <Image
               src="/bazaar.png"
               alt="Bazaar"
@@ -61,107 +65,254 @@ const HomePage = () => {
             />
           </div>
         </div>
-   
-        <div className="relative md:flex-none md:w-1/2 flex items-center justify-center rounded-full bg-[#FFECE3]">
+
+        <div className="relative flex items-center justify-center rounded-full bg-[#FFECE3] md:w-1/2 md:flex-none">
           <Image
             src="/hero.png"
             alt="Model"
             width={600}
             height={600}
-            className="w-full h-full scale-110 hover:shadow-lg rounded-full hover:shadow-[#FFECE3] transition-transform duration-1000 hover:scale-100"
+            className="h-full w-full scale-110 rounded-full transition-transform duration-1000 hover:scale-100 hover:shadow-lg hover:shadow-[#FFECE3]"
           />
         </div>
       </header>
-
       {/* Promotion section */}
-      <p className="text-[#0062F5] text-center text-xs mt-20">Promotions</p>
-      <h2 className="text font-[sora] text-center text-3xl font-bold">Our Promotion Events</h2>
-      <main className="gap-4 font-[sora] grid grid-cols-2 md:grid-cols-4 mt-5 ">
-  
-  <div className="flex justify-center sm:gap-32 bg-[#D6D6D8] items-center col-span-2 cursor-pointer order-1 md:order-1">
-    <div className="text-center px-2">
-      <h1 className="uppercase font-bold sm:text-2xl text-xl text-nowrap">get up to <span className="font-extrabold sm:text-3xl text-2xl ">60%</span></h1>
-      <p>For the summer season</p>
-    </div>
-    <div>
-      <Image src="/event-banner-img1.png" height={200} width={260} alt="Banner model" className="hover:scale-90 transition-transform duration-500"/>
-    </div>
-  </div>
-  
-  <div className="row-span-2 bg-[#EFE1C7] cursor-pointer order-3 md:order-2">
-    <div className="p-4">
-      <p className="text-base">Flex Sweatshirt</p>
-      <p className="flex items-center gap-3 font-semibold"><span className="line-through font-normal">$100.00 </span> $75.00</p>
-    </div>
-    <div>
-      <Image src="/horizantalbanner1.png" height={340} width={280} alt="horizantal banner model 1"  className=" hover:scale-90 transition-transform duration-500" />
-    </div>
-  </div>
-  
-  <div className="row-span-2 bg-[#D7D7D9] cursor-pointer order-4 md:order-3">
-    <div className="p-4">
-      <p className="text-base">Flex Push Button </p>
-      <p className="flex items-center gap-3 font-semibold"><span className="line-through font-normal">$225.00</span> $190.00</p>
-    </div>
-    <div>
-      <Image src="/horizantalbanner2.png" height={340} width={280} alt="horizantal banner model 1" className="hover:scale-90 transition-transform duration-500"/>
-    </div>
-  </div>
-  
-  <div className="flex text-white justify-center flex-col items-center col-span-2 p-4 bg-[#212121] cursor-pointer order-2 md:order-4">
-    <p className="text-4xl font-extrabold mt-3">GET 30% Off</p>
-    <p className="text-sm uppercase mt-5">use promo code</p>
-    <button className="bg-[#474747] rounded-lg px-4 py-5 uppercase transition-colors duration-500 hover:bg-[#3d3c3c]">dineweekendsale</button>
-  </div>      
-  
-</main>
+      <p className="mt-20 text-center text-xs text-[#0062F5]">Promotions</p>
+      <h2 className="text text-center font-[sora] text-3xl font-bold">
+        Our Promotion Events
+      </h2>
+      <main className="mt-5 grid grid-cols-2 gap-4 font-[sora] md:grid-cols-4">
+        <div className="order-1 col-span-2 flex cursor-pointer items-center justify-center bg-[#D6D6D8] sm:gap-32 md:order-1">
+          <div className="px-2 text-center">
+            <h1 className="text-nowrap text-xl font-bold uppercase sm:text-2xl">
+              get up to{" "}
+              <span className="text-2xl font-extrabold sm:text-3xl">60%</span>
+            </h1>
+            <p>For the summer season</p>
+          </div>
+          <div>
+            <Image
+              src="/event-banner-img1.png"
+              height={200}
+              width={260}
+              alt="Banner model"
+              className="transition-transform duration-500 hover:scale-90"
+            />
+          </div>
+        </div>
 
+        <div className="order-3 row-span-2 cursor-pointer bg-[#EFE1C7] md:order-2">
+          <div className="p-4">
+            <p className="text-base">Flex Sweatshirt</p>
+            <p className="flex items-center gap-3 font-semibold">
+              <span className="font-normal line-through">$100.00 </span> $75.00
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/horizantalbanner1.png"
+              height={340}
+              width={280}
+              alt="horizantal banner model 1"
+              className="transition-transform duration-500 hover:scale-90"
+            />
+          </div>
+        </div>
 
-{/* products page */}
+        <div className="order-4 row-span-2 cursor-pointer bg-[#D7D7D9] md:order-3">
+          <div className="p-4">
+            <p className="text-base">Flex Push Button </p>
+            <p className="flex items-center gap-3 font-semibold">
+              <span className="font-normal line-through">$225.00</span> $190.00
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/horizantalbanner2.png"
+              height={340}
+              width={280}
+              alt="horizantal banner model 1"
+              className="transition-transform duration-500 hover:scale-90"
+            />
+          </div>
+        </div>
 
-<p className="text-[#0062F5] text-center text-xs mt-20">Products</p>
-<h2 className="text font-[sora] text-center text-3xl font-bold">Check What We Have</h2>
-<div className="flex tab:flex-row flex-col tab:justify-between items-center  gap-5 mt-5">
- {products.map(product =>{
-  return(
-      <div className="mob:w-96 w-full " key={product.img}>
-        <Image
-          src={product.img}
-          alt={product.title}
-          width={200}
-          height={200}
-          className="w-full h-full object-cover hover:scale-90 transition-transform duration-500  cursor-pointer"
-        />
-        <div>
-          <h3 className="text-base font-semibold">{product.title}</h3>
-          <p className="text-lg font-semibold ">{product.price}</p>
+        <div className="order-2 col-span-2 flex cursor-pointer flex-col items-center justify-center bg-[#212121] p-4 text-white md:order-4">
+          <p className="mt-3 text-4xl font-extrabold">GET 30% Off</p>
+          <p className="mt-5 text-sm uppercase">use promo code</p>
+          <button className="rounded-lg bg-[#474747] px-4 py-5 uppercase transition-colors duration-500 hover:bg-[#3d3c3c]">
+            dineweekendsale
+          </button>
+        </div>
+      </main>
+      {/* products page */}
+      <p className="mt-20 text-center text-xs text-[#0062F5]">Products</p>
+      <h2 className="text text-center font-[sora] text-3xl font-bold">
+        Check What We Have
+      </h2>
+      <div className="mt-5 flex flex-col items-center gap-5 tab:flex-row tab:justify-between">
+        {products.map((product) => {
+          return (
+            <div className="w-full mob:w-96" key={product.img}>
+              <Image
+                src={product.img}
+                alt={product.title}
+                width={200}
+                height={200}
+                className="h-full w-full cursor-pointer object-cover transition-transform duration-500 hover:scale-90"
+              />
+              <div>
+                <h3 className="text-base font-semibold">{product.title}</h3>
+                <p className="text-lg font-semibold">{product.price}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* Design Section */}
+      <div>
+        <h1 className="text-end font-[sora] text-5xl font-bold">
+          Unique and Authentic Vintage Designer Jewellery
+        </h1>
+      </div>
+      {/* <div className="mt-4 flex flex-col items-center gap-5 font-[sora] md:flex-row md:justify-between">
+        <div className="relative grid grid-cols-2 gap-y-10 md:w-1/2">
+          <p className="pointer-events-none absolute left-1/2 top-1/2 -z-20 -translate-x-1/2 -translate-y-1/2 transform text-8xl font-bold uppercase tracking-widest text-[#F2F3F7]">
+            Different <br /> from <br /> others{" "}
+          </p>
+          <div>
+            <h1 className="text-xl font-semibold">
+              Using Good Quality Materials
+            </h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-xl font-semibold">100% Handmade Products</h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-xl font-semibold">Modern Fashion Design</h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-xl font-semibold">Discount for Bulk Orders</h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-6 md:w-1/2 md:flex-row">
+          <Image
+            src="/design-section.png"
+            alt="Design Section"
+            width={300}
+            height={300}
+            className="h-full w-full object-cover"
+          />
+          <div>
+            <p className="font-light">
+              This piece is ethically crafted in our small family-owned workshop
+              in Peru with unmatched attention to detail and care.The Natural
+              color is the actual natural color of the fiber, undyed and 100%
+              traceable.
+            </p>
+            <button className="mt-6 rounded-md bg-black px-5 py-3 font-semibold text-white transition-colors duration-500 hover:bg-[#2b2929]">
+              See All Products
+            </button>{" "}
+          </div>
+        </div>
+      </div> */}
+      <div className="mt-4 flex flex-col items-center gap-8 font-[sora] md:flex-row md:justify-between">
+        <div className="md:w-1/2place relative grid grid-cols-1 gap-y-10 max-md:place-items-center sm:grid-cols-2">
+          <p className="pointer-events-none absolute left-1/2 top-1/2 -z-20 -translate-x-1/2 -translate-y-1/2 transform text-center text-4xl font-bold uppercase tracking-widest text-[#F2F3F7] sm:text-6xl lg:text-8xl">
+            Different <br /> from <br /> others
+          </p>
+          <div>
+            <h1 className="text-lg font-semibold sm:text-xl">
+              Using Good Quality Materials
+            </h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-lg font-semibold sm:text-xl">
+              100% Handmade Products
+            </h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-lg font-semibold sm:text-xl">
+              Modern Fashion Design
+            </h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+          <div>
+            <h1 className="text-lg font-semibold sm:text-xl">
+              Discount for Bulk Orders
+            </h1>
+            <p className="font-light">
+              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-6 md:w-1/2 md:flex-row">
+          <Image
+            src="/design-section.png"
+            alt="Design Section"
+            width={300}
+            height={300}
+            className="h-full w-full object-cover sm:w-80"
+          />
+          <div className="text-center md:text-left">
+            <p className="font-light">
+              This piece is ethically crafted in our small family-owned workshop
+              in Peru with unmatched attention to detail and care. The Natural
+              color is the actual natural color of the fiber, undyed and 100%
+              traceable.
+            </p>
+            <button className="mt-6 rounded-md bg-black px-5 py-3 font-semibold text-white transition-colors duration-500 hover:bg-[#2b2929]">
+              See All Products
+            </button>
+          </div>
         </div>
       </div>
-    
-  )
- })}
-</div>
-{/* 
-<div>
-  <div></div>
-  <div>
-    <div>
-
-    </div>
-  </div>
-</div> */}
-
-{/* Subscribe to newsletter section */}
-
-
-<div className="flex flex-col items-center justify-center gap-4 mt-20 mb-20 font-[sora]">
-  <h1 className="font-bold text-3xl">Subscribe Our Newsletter</h1>
-  <p className="font-light text-base">Get the latest information and promo offers directly</p>
-  <div className="flex sm:flex-row flex-col max-sm:w-full gap-2 mt-2">
-    <input type="email" placeholder="Input Email Address" className="border border-[#808080] sm:w-80 w-full px-5 py-3"/>
-    <button className="bg-black text-white font-bold px-5 py-3 rounded-md hover:bg-[#2b2929] transition-colors duration-500">Get Started</button>
-  </div>
-</div>
+      {/* Subscribe to newsletter section */}
+      <div className="relative mb-20 mt-20 flex flex-col items-center justify-center gap-4 font-[sora]">
+        <p className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center text-4xl font-bold uppercase tracking-widest text-[#F2F3F7] md:text-8xl">
+          newsletter
+        </p>
+        <h1 className="z-10 text-3xl font-bold">Subscribe Our Newsletter</h1>
+        <p className="z-10 text-base font-light">
+          Get the latest information and promo offers directly
+        </p>
+        <div className="z-10 mt-2 flex flex-col gap-2 max-sm:w-full sm:flex-row">
+          <input
+            type="email"
+            placeholder="Input Email Address"
+            className="w-full border border-[#808080] px-5 py-3 sm:w-80"
+          />
+          <button className="rounded-md bg-black px-5 py-3 font-bold text-white transition-colors duration-500 hover:bg-[#2b2929]">
+            Get Started
+          </button>
+        </div>
+      </div>
+      {/* Footer Section */}
+      <footer className="flex items-center justify-center gap-4 font-[sora]">
+        <div>
+          <Image src="/logo.png" alt="" width={0} height={0} />
+        </div>
+      </footer>
     </div>
   );
 };

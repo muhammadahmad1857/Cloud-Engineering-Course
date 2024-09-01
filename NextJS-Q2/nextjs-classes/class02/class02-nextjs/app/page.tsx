@@ -27,9 +27,9 @@ const Home = () => {
       <p className="font-bold">This is bold text.</p>
 
       {/* Text Transform */}
-      <p className="uppercase">THIS TEXT IS UPPERCASE.</p>
-      <p className="lowercase">this text is lowercase.</p>
-      <p className="capitalize">This text is Capitalized.</p>
+      <p className="uppercase">THIS text IS uppercase.</p>
+      <p className="lowercase">THIS text is LOWERCASE.</p>
+      <p className="capitalize">this text is Capitalized.</p>
 
       {/* Text Decoration */}
       <p className="underline">This text has an underline.</p>
@@ -37,9 +37,16 @@ const Home = () => {
       <p className="no-underline">This text has no underline.</p>
 
       {/* Text Overflow */}
-      <p className="truncate">This text will be truncated if it's too long to fit in the container.</p>
-      <p className="overflow-ellipsis">This text will show an ellipsis when overflowing.</p>
-      <p className="overflow-hidden">This text will be hidden if it's too long.</p>
+      <p className="truncate">
+        This text will be truncated if it&apos;s too long to fit in the
+        container.
+      </p>
+      <p className="overflow-ellipsis">
+        This text will show an ellipsis when overflowing.
+      </p>
+      <p className="overflow-hidden">
+        This text will be hidden if it&apos;s too long.
+      </p>
 
       {/* Flex and Grid Layout */}
       <div className="flex flex-col items-center space-y-4">
@@ -49,10 +56,10 @@ const Home = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4 mt-4">
-        <p className="bg-gray-200 p-4">Grid item 1</p>
-        <p className="bg-gray-300 p-4">Grid item 2</p>
-        <p className="bg-gray-400 p-4">Grid item 3</p>
-        <p className="bg-gray-500 p-4">Grid item 4</p>
+        <div className="bg-gray-200 p-4">Grid item 1</div>
+        <div className="bg-gray-300 p-4">Grid item 2</div>
+        <div className="bg-gray-400 p-4">Grid item 3</div>
+        <div className="bg-gray-500 p-4">Grid item 4</div>
       </div>
     </div>
   );

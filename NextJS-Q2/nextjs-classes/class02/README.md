@@ -9,4 +9,4 @@ for seeing what sir teaches in today's class in next.js see [nextjs readme.md](.
 You can check the preview of both websites here
 
 [html basics](https://class02-html-basics.vercel.app/)
-[Tailwind basics in nexthjs]()
+[Tailwind basics in nextjs]()

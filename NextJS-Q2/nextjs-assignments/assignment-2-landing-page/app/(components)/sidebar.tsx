@@ -59,7 +59,7 @@ const Sidebar = () => {
 
       {/* Full-Screen Sidebar */}
       <div
-        className={`rounded-md fixed right-0 top-0 h-screen w-full transform  text-black ${
+        className={`fixed bottom-0 right-0 top-0 h-[100dvh] w-full transform rounded-md bg-green-600 text-black ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } z-50 overflow-y-auto transition-transform duration-500`}
       >
@@ -91,9 +91,9 @@ const Sidebar = () => {
             <input
               type="text"
               placeholder="Search"
-              className={`flex-1 outline-none  ${
+              className={`flex-1 outline-none ${
                 isOpen ? "bg-white text-black" : ""
-              } px-2 py-1 text-sm `}
+              } px-2 py-1 text-sm`}
             />
           </div>
 
@@ -102,7 +102,7 @@ const Sidebar = () => {
             <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
           </div>
         </div>
-        <div className="mt-2 flex w-full items-center  gap-2 rounded-md border border-[#abacb3] px-2 py-4 transition-colors duration-300 focus-within:border-[#A0A3B1] sm:hidden">
+        <div className="mt-2 flex w-full items-center gap-2 rounded-md border border-[#abacb3] px-2 py-4 transition-colors duration-300 focus-within:border-[#A0A3B1] sm:hidden">
           <button
             aria-label="Search"
             className="flex h-7 w-8 cursor-pointer items-center justify-center rounded-sm transition-all duration-500 hover:scale-125 hover:rounded-lg"
@@ -112,7 +112,7 @@ const Sidebar = () => {
           <input
             type="text"
             placeholder="What are you looking for?"
-            className="w-full outline-none "
+            className="w-full outline-none"
           />{" "}
         </div>
         {/* Sidebar Links */}
@@ -134,6 +134,7 @@ const Sidebar = () => {
             Cart
           </button>
         </div>
+        <button className="fixed bottom-0">Hello</button>
       </div>
     </div>
   );

@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        text: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='120px'><text x='0' y='15' fill='red' font-size='20'>NEWSLETTER</text></svg>",
+      },
       screens: {
         sm: "550px",
         // => @media (min-width: 640px) { ... }
@@ -18,10 +21,10 @@ const config: Config = {
         lg: "1024px",
         // => @media (min-width: 1024px) { ... }
 
-      tab: '720px',
+        tab: "720px",
         // => @media (min-width: 720px) { ... }
 
-        mob: '450px',
+        mob: "450px",
         // => @media (min-width: 1536px) { ... }
       },
     },
