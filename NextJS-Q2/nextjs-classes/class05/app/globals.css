@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-black text-white m-5
+}
+
+/* In css we carry out with three things */
+
+/* Selectors */
+/* Property:value; */
+
+.background-red{
+  background-color: red;
+}
+
+/* We should have to use these properties in our project o we can make a class */
+.flexbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* Changing base layer for h1 */
+
+@layer base{
+  h1{
+    @apply text-3xl font-bold text-center
+  }
+  p{
+    @apply text-xl font-semibold text-center
+
+  }
+}
+
+/* Making custom-card class using tailwind component layer */
+
+@layer components {
+  .custom-card {
+    @apply bg-white shadow-md rounded-md p-6 cursor-pointer hover:bg-slate-200 hover:translate-x-2 transition-all duration-500 hover:shadow-xl
+  }
+}
