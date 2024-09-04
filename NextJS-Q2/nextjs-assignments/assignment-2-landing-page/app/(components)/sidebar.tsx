@@ -59,7 +59,7 @@ const Sidebar = () => {
       <div
         className={`fixed bottom-0 right-0 top-0 h-[100dvh] w-full transform bg-white text-black backdrop-filter ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } z-50 overflow-y-auto transition-transform duration-500`}
+        } overflow-x-hidden z-50 overflow-y-auto transition-transform duration-500`}
       >
         {/* Navbar inside Sidebar */}
         <div className="flex items-center justify-between bg-white p-4 shadow-lg">
@@ -103,7 +103,7 @@ const Sidebar = () => {
         <div className="mt-2 flex w-full items-center gap-2 rounded-md border border-[#abacb3] px-2 py-4 transition-colors duration-300 focus-within:border-[#A0A3B1] sm:hidden">
           <button
             aria-label="Search"
-            className="flex h-7 sm:w-8 cursor-pointer items-center justify-center rounded-sm transition-all duration-500 hover:scale-125 hover:rounded-lg"
+            className="flex h-7 cursor-pointer items-center justify-center rounded-sm transition-all duration-500 hover:scale-125 hover:rounded-lg sm:w-8"
           >
             <CiSearch className="h-5 w-5" />
           </button>

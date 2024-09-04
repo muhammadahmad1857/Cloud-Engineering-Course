@@ -171,7 +171,7 @@ const HomePage = () => {
       </div>
       {/* Design Section */}
       <div>
-        <h1 className="mt-4 text-center font-[sora] text-2xl font-bold mob:text-end mob:text-3xl tab:text-5xl">
+        <h1 className="mt-12 text-center font-[sora] text-2xl font-bold mob:text-end mob:text-3xl tab:text-5xl">
           Unique and Authentic Vintage Designer Jewellery
         </h1>
       </div>
