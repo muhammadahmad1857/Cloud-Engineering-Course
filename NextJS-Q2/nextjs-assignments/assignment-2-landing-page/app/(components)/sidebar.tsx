@@ -59,7 +59,7 @@ const Sidebar = () => {
       <div
         className={`fixed bottom-0 right-0 top-0 h-[100dvh] w-full transform bg-white text-black backdrop-filter ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } overflow-x-hidden z-50 overflow-y-auto transition-transform duration-500`}
+        } z-50 overflow-y-auto transition-transform duration-500`}
       >
         {/* Navbar inside Sidebar */}
         <div className="flex items-center justify-between bg-white p-4 shadow-lg">
