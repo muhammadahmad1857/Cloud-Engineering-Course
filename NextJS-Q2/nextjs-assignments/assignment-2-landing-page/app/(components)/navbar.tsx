@@ -7,12 +7,10 @@ import Link from "next/link";
 import Sidebar from "./sidebar";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
   return (
     <>
       {/* Navbar */}
-      <nav className="mt-4 hidden items-center justify-between md:flex">
+      <nav className="mt-4 hidden h-10 items-center justify-between md:flex">
         {/* Logo */}
         <Link href="/">
           <Image

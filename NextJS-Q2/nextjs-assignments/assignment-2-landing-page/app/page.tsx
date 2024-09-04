@@ -171,69 +171,17 @@ const HomePage = () => {
       </div>
       {/* Design Section */}
       <div>
-        <h1 className="text-end font-[sora] text-5xl font-bold">
+        <h1 className="mt-4 text-center font-[sora] text-2xl font-bold mob:text-end mob:text-3xl tab:text-5xl">
           Unique and Authentic Vintage Designer Jewellery
         </h1>
       </div>
-      {/* <div className="mt-4 flex flex-col items-center gap-5 font-[sora] md:flex-row md:justify-between">
-        <div className="relative grid grid-cols-2 gap-y-10 md:w-1/2">
-          <p className="pointer-events-none absolute left-1/2 top-1/2 -z-20 -translate-x-1/2 -translate-y-1/2 transform text-8xl font-bold uppercase tracking-widest text-[#F2F3F7]">
-            Different <br /> from <br /> others{" "}
-          </p>
-          <div>
-            <h1 className="text-xl font-semibold">
-              Using Good Quality Materials
-            </h1>
-            <p className="font-light">
-              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
-            </p>
-          </div>
-          <div>
-            <h1 className="text-xl font-semibold">100% Handmade Products</h1>
-            <p className="font-light">
-              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
-            </p>
-          </div>
-          <div>
-            <h1 className="text-xl font-semibold">Modern Fashion Design</h1>
-            <p className="font-light">
-              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
-            </p>
-          </div>
-          <div>
-            <h1 className="text-xl font-semibold">Discount for Bulk Orders</h1>
-            <p className="font-light">
-              Lorem ipsum dolor sit amt, consectetur adipiscing elit.
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-6 md:w-1/2 md:flex-row">
-          <Image
-            src="/design-section.png"
-            alt="Design Section"
-            width={300}
-            height={300}
-            className="h-full w-full object-cover"
-          />
-          <div>
-            <p className="font-light">
-              This piece is ethically crafted in our small family-owned workshop
-              in Peru with unmatched attention to detail and care.The Natural
-              color is the actual natural color of the fiber, undyed and 100%
-              traceable.
-            </p>
-            <button className="mt-6 rounded-md bg-black px-5 py-3 font-semibold text-white transition-colors duration-500 hover:bg-[#2b2929]">
-              See All Products
-            </button>{" "}
-          </div>
-        </div>
-      </div> */}
-      <div className="mt-4 flex flex-col items-center gap-8 font-[sora] md:flex-row md:justify-between">
-        <div className="md:w-1/2place relative grid grid-cols-1 gap-y-10 max-md:place-items-center sm:grid-cols-2">
-          <p className="pointer-events-none absolute left-1/2 top-1/2 -z-20 -translate-x-1/2 -translate-y-1/2 transform text-center text-4xl font-bold uppercase tracking-widest text-[#F2F3F7] sm:text-6xl lg:text-8xl">
+
+      <div className="mt-6 flex flex-col items-center gap-8 font-[sora] md:flex-row md:justify-between">
+        <div className="relative grid grid-cols-1 gap-y-10 max-md:place-items-center sm:grid-cols-2 md:w-1/2">
+          <p className="pointer-events-none absolute left-1/2 top-1/2 -z-20 -translate-x-1/2 -translate-y-1/2 transform text-center text-5xl font-bold uppercase tracking-widest text-[#F2F3F7] sm:text-6xl lg:text-[76px]">
             Different <br /> from <br /> others
           </p>
-          <div>
+          <div className="w-72">
             <h1 className="text-lg font-semibold sm:text-xl">
               Using Good Quality Materials
             </h1>
@@ -241,7 +189,7 @@ const HomePage = () => {
               Lorem ipsum dolor sit amt, consectetur adipiscing elit.
             </p>
           </div>
-          <div>
+          <div className="w-72">
             <h1 className="text-lg font-semibold sm:text-xl">
               100% Handmade Products
             </h1>
@@ -249,7 +197,7 @@ const HomePage = () => {
               Lorem ipsum dolor sit amt, consectetur adipiscing elit.
             </p>
           </div>
-          <div>
+          <div className="w-72">
             <h1 className="text-lg font-semibold sm:text-xl">
               Modern Fashion Design
             </h1>
@@ -257,7 +205,7 @@ const HomePage = () => {
               Lorem ipsum dolor sit amt, consectetur adipiscing elit.
             </p>
           </div>
-          <div>
+          <div className="w-72">
             <h1 className="text-lg font-semibold sm:text-xl">
               Discount for Bulk Orders
             </h1>
@@ -289,11 +237,13 @@ const HomePage = () => {
       </div>
       {/* Subscribe to newsletter section */}
       <div className="relative mb-20 mt-20 flex flex-col items-center justify-center gap-4 font-[sora]">
-        <p className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-center text-4xl font-bold uppercase tracking-widest text-[#F2F3F7] md:text-8xl">
+        <p className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform text-center text-4xl font-bold uppercase tracking-widest text-[#F2F3F7] sm:block sm:text-6xl md:text-8xl">
           newsletter
         </p>
-        <h1 className="z-10 text-3xl font-bold">Subscribe Our Newsletter</h1>
-        <p className="z-10 text-base font-light">
+        <h1 className="z-10 text-3xl font-bold max-sm:text-center">
+          Subscribe Our Newsletter
+        </h1>
+        <p className="z-10 text-base font-light max-sm:text-center">
           Get the latest information and promo offers directly
         </p>
         <div className="z-10 mt-2 flex flex-col gap-2 max-sm:w-full sm:flex-row">
