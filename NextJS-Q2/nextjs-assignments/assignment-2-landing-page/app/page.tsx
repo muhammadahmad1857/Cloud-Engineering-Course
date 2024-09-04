@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./(components)/navbar";
 import Image from "next/image";
+import Link from "next/link";
 import { FiShoppingCart } from "react-icons/fi";
 
 const HomePage = () => {
@@ -258,10 +259,102 @@ const HomePage = () => {
         </div>
       </div>
       {/* Footer Section */}
-      <footer className="flex items-center justify-center gap-4 font-[sora]">
-        <div>
-          <Image src="/logo.png" alt="" width={0} height={0} />
+      <footer className="mb-10 flex items-start justify-between gap-4 font-[sora]">
+        <div className="flex flex-col gap-8">
+          <Image
+            src="/logo.jpg"
+            alt="Dine Market"
+            className="cursor-pointer transition-transform duration-500 hover:scale-110"
+            width={180}
+            height={30}
+          />
+          <p>
+            Small, artisan label that offers a thoughtfully curated collection
+            of high quality everyday essentials made.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href={"https://x.com"}
+              target="_blank"
+              className="group flex w-10 items-center justify-center rounded-lg bg-[#f1f1f1] px-3 py-3 transition-colors duration-500 hover:bg-[#e0dede]"
+            >
+              <Image
+                src={"/twitter.svg"}
+                alt="twitter"
+                width={20}
+                className="transition-transform duration-500 group-hover:scale-125"
+                height={20}
+              />
+            </Link>
+            <Link
+              href={"https://facebook.com"}
+              target="_blank"
+              className="group flex w-10 items-center justify-center rounded-lg bg-[#f1f1f1] px-3 py-3 transition-colors duration-500 hover:bg-[#e0dede]"
+            >
+              <Image
+                src={"/facebook.svg"}
+                alt="facebook"
+                className="transition-transform duration-500 group-hover:scale-125"
+                width={20}
+                height={20}
+              />
+            </Link>
+            <Link
+              href={"https://linkedin.com"}
+              target="_blank"
+              className="group flex w-10 items-center justify-center rounded-lg bg-[#f1f1f1] px-3 py-3 transition-colors duration-500 hover:bg-[#e0dede]"
+            >
+              <Image
+                src={"/linkedin.svg"}
+                className="transition-transform duration-500 group-hover:scale-125"
+                alt="linkedin"
+                width={20}
+                height={20}
+              />
+            </Link>
+          </div>
         </div>
+        <div>
+          <h2 className="font-bold">Company</h2>
+          <div className="mt-4 flex flex-col gap-2 text-[#666666]">
+            {[
+              "About",
+              "Terms of Use",
+              "Privacy Policy",
+              "How it Works",
+              "Contact Us",
+            ].map((value: string) => {
+              return (
+                <Link
+                  href={"#"}
+                  key={value}
+                  className="transition-colors duration-500 hover:text-[#a8a5a5]"
+                >
+                  {value}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+        <div>
+          <h1 className="font-bold">Support</h1>
+          <div className="mt-4 flex flex-col gap-2 text-[#666666]">
+            {["Support Center", "24h Services", "Quick Chat"].map(
+              (value: string) => {
+                return (
+                  <Link
+                    href={"#"}
+                    key={value}
+                    className="transition-colors duration-500 hover:text-[#a8a5a5]"
+                  >
+                    {value}
+                  </Link>
+                );
+              },
+            )}
+          </div>
+        </div>
+        <div className=""></div>
       </footer>
     </div>
   );
