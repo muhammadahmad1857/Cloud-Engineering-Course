@@ -176,8 +176,8 @@ const HomePage = () => {
           Unique and Authentic Vintage Designer Jewellery
         </h1>
       </div>
-      <div className="mt-6 flex flex-col items-center gap-8 font-[sora] md:flex-row md:justify-between">
-        <div className="relative grid grid-cols-1 gap-y-10 max-md:place-items-center sm:grid-cols-2 md:w-1/2">
+      <div className="mt-6 flex flex-col items-center gap-8 font-[sora] xl:flex-row xl:justify-between">
+        <div className="relative grid grid-cols-1 gap-y-10 max-xl:place-items-center sm:grid-cols-2 xl:w-1/2">
           <p className="pointer-events-none absolute left-1/2 top-1/2 -z-20 -translate-x-1/2 -translate-y-1/2 transform text-center text-5xl font-bold uppercase tracking-widest text-[#F2F3F7] sm:text-6xl lg:text-[76px]">
             Different <br /> from <br /> others
           </p>
@@ -214,7 +214,7 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-6 md:w-1/2 md:flex-row">
+        <div className="flex flex-col items-center justify-center gap-6 xl:w-1/2 xl:flex-row">
           <Image
             src="/design-section.png"
             alt="Design Section"
@@ -222,7 +222,7 @@ const HomePage = () => {
             height={300}
             className="h-full w-full object-cover sm:w-80"
           />
-          <div className="text-center md:text-left">
+          <div className="text-center xl:text-left">
             <p className="font-light">
               This piece is ethically crafted in our small family-owned workshop
               in Peru with unmatched attention to detail and care. The Natural

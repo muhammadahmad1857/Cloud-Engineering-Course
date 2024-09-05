@@ -24,6 +24,9 @@ const config: Config = {
         tab: "720px",
         // => @media (min-width: 720px) { ... }
 
+        xl: "1150px",
+        // => @media (min-width: 720px) { ... }
+
         mob: "450px",
         // => @media (min-width: 1536px) { ... }
       },
