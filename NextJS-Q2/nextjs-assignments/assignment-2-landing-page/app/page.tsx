@@ -11,7 +11,7 @@ const HomePage = () => {
     { img: "/product3.png", title: "Flex Sweatshirt", price: "$175" },
   ];
   return (
-    <div className="mx-2 md:mx-10">
+    <div className="mx-6 md:mx-10">
       <Navbar />
       <header className="relative mb-16 mt-10 flex flex-col-reverse items-center max-md:gap-10 md:flex-row md:items-start md:justify-between">
         {/* Content Section */}
@@ -73,7 +73,7 @@ const HomePage = () => {
             alt="Model"
             width={600}
             height={600}
-            className="h-full w-full scale-110 rounded-full transition-transform duration-1000 hover:scale-100 hover:shadow-lg hover:shadow-[#FFECE3]"
+            className="h-full w-full scale-110 cursor-pointer rounded-full transition-transform duration-1000 hover:scale-100 hover:shadow-lg hover:shadow-[#FFECE3]"
           />
         </div>
       </header>
@@ -176,7 +176,6 @@ const HomePage = () => {
           Unique and Authentic Vintage Designer Jewellery
         </h1>
       </div>
-
       <div className="mt-6 flex flex-col items-center gap-8 font-[sora] md:flex-row md:justify-between">
         <div className="relative grid grid-cols-1 gap-y-10 max-md:place-items-center sm:grid-cols-2 md:w-1/2">
           <p className="pointer-events-none absolute left-1/2 top-1/2 -z-20 -translate-x-1/2 -translate-y-1/2 transform text-center text-5xl font-bold uppercase tracking-widest text-[#F2F3F7] sm:text-6xl lg:text-[76px]">
@@ -259,8 +258,8 @@ const HomePage = () => {
         </div>
       </div>
       {/* Footer Section */}
-      <footer className="mb-10 flex items-start justify-between gap-4 font-[sora]">
-        <div className="flex flex-col gap-8">
+      <footer className="mb-10 flex flex-wrap justify-between gap-16 font-[sora]">
+        <div className="flex w-96 flex-col gap-8 max-sm:items-center md:w-[500px]">
           <Image
             src="/logo.jpg"
             alt="Dine Market"
@@ -268,7 +267,7 @@ const HomePage = () => {
             width={180}
             height={30}
           />
-          <p>
+          <p className="max-sm:text-center">
             Small, artisan label that offers a thoughtfully curated collection
             of high quality everyday essentials made.
           </p>
@@ -336,7 +335,7 @@ const HomePage = () => {
             })}
           </div>
         </div>
-        <div>
+        <div className="max-mob:hidden">
           <h1 className="font-bold">Support</h1>
           <div className="mt-4 flex flex-col gap-2 text-[#666666]">
             {["Support Center", "24h Services", "Quick Chat"].map(
@@ -354,8 +353,48 @@ const HomePage = () => {
             )}
           </div>
         </div>
-        <div className=""></div>
+        <div>
+          {" "}
+          <h1 className="font-bold">Contact</h1>
+          <div className="mt-4 flex flex-col gap-2 text-[#666666]">
+            <Link
+              href={"#"}
+              className="transition-colors duration-500 hover:text-[#a8a5a5]"
+            >
+              Whatsapp
+            </Link>
+            <Link
+              href={"#"}
+              className="transition-colors duration-500 hover:text-[#a8a5a5]"
+            >
+              Support 24h
+            </Link>
+          </div>
+        </div>
       </footer>
+      {/* Copyright Footer */}
+      <hr className="mx-0 border-[#666666] px-0" />{" "}
+      {/* Add padding-top to ensure content is not overlapped by <hr> */}
+      <div className="flex flex-col items-center justify-center gap-y-5 py-4 font-[sora] sm:flex-row sm:flex-wrap sm:justify-between">
+        <p className="text-[#666666]">Copyright © 2024 Dine Market</p>
+        <p>
+          Designed by
+          <strong className="cursor-pointer"> Weird Design Studio</strong>
+        </p>
+        <p className="text-nowrap">
+          Code by
+          <strong>
+            <Link
+              href={"https://github.com/muhammadahmad1857"}
+              target="_blank"
+              className="relative before:absolute before:-bottom-1 before:left-1/2 before:h-1 before:w-0 before:-translate-x-1/2 before:transform before:rounded-md before:bg-black before:transition-all before:duration-500 hover:before:w-full"
+            >
+              &nbsp;muhammadahmad1857
+            </Link>{" "}
+            on github
+          </strong>
+        </p>
+      </div>
     </div>
   );
 };
