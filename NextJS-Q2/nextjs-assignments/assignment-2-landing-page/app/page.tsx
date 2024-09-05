@@ -299,7 +299,7 @@ const HomePage = () => {
               />
             </Link>
             <Link
-              href={"https://linkedin.com"}
+              href={"https://linkedin.com/MuhammadAhmadJawad"}
               target="_blank"
               className="group flex w-10 items-center justify-center rounded-lg bg-[#f1f1f1] px-3 py-3 transition-colors duration-500 hover:bg-[#e0dede]"
             >
