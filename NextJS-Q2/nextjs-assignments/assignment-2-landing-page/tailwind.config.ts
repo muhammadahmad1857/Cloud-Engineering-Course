@@ -30,6 +30,7 @@ const config: Config = {
         mob: "450px",
         // => @media (min-width: 1536px) { ... }
       },
+      
     },
   },
   plugins: [],
