@@ -19,6 +19,7 @@
 15. [Difference Between SSR and CSR](#difference-between-ssr-and-csr)
 16. [What is onClick](#what-is-onclick)
 17. [Why Does onClick Only Work on Client Side](#why-does-onclick-only-work-on-client-side)
+18. [Live Link](#live-link)
 
 ## What is a Component
 
@@ -188,3 +189,8 @@ return <button onClick={handleClick}>Click Me</button>;
 ## Why Does onClick Only Work on Client Side
 
 `onClick` and other event handlers rely on JavaScript to function. Since JavaScript runs in the browser (client-side), these event handlers only work in a client-side environment. On the server side (SSR), JavaScript is not executed in the same way, so user interactions such as clicks are handled after the page has been sent to the client and JavaScript has been loaded. This is why `onClick` and similar event handlers only work on the client side.
+
+## Live Link
+
+- [Check out the output of today class at vercel](https://class06-piaic.vercel.app)
+- [Check out the code on github](https://github.com/muhammadahmad1857/Cloud-Engineering-Course/tree/main/NextJS-Q2/nextjs-classes/class06)
