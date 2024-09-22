@@ -16,7 +16,6 @@ const Todo = () => {
   const [task, setTask] = useState<string>("");
   const [editingId, setEditingId] = useState<number | null>(null); // State to track editing task ID
 
-  const date = new Date();
 
   const addTask = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,7 +49,7 @@ const Todo = () => {
       const newTodo = {
         id: todos.length + 1, // Incremental ID
         title: task,
-        date: date.toLocaleDateString() + " " + date.toLocaleTimeString(),
+        date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
       };
       setTodos([...todos, newTodo]);
       triggerToast({
