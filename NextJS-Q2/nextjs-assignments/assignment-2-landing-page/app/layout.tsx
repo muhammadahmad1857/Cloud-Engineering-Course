@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Landing Page | Assignment 2-PIAIC",
@@ -16,8 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="min-h-[100dvh]">{children}</main>
+      <body className={sora.className}>
+        <main className="mx-auto min-h-[100dvh] max-w-screen-2xl">
+          {children}
+        </main>
       </body>
     </html>
   );
