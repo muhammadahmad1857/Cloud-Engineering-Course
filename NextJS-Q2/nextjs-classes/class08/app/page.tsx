@@ -89,15 +89,15 @@ export default async function Home() {
         <footer className="mt-16 text-center">
           <div className="flex justify-center space-x-6">
             <a
-              href="https://nextjs.org/docs"
+              href="https://linkedin.com/in/muhammadAhmadJawad"
               className="text-indigo-600 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-indigo-100 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Docs
+              Linkedin
             </a>
             <a
-              href="https://github.com/vercel/next.js"
+              href="https://github.com/muhammadahmad1857"
               className="text-indigo-600 dark:text-indigo-300 hover:text-indigo-800 dark:hover:text-indigo-100 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
