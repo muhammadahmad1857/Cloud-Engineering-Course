@@ -10,7 +10,7 @@ const Home = () => {
         <p className="text-gray-200 mb-8 text-center text-xl leading-relaxed">
           Welcome to Class09! Here, we delve into the fascinating world of routing theory and its practical applications. Explore our{" "}
           <Link
-            href={"https://github.com/muhammadahmad1857"}
+            href={"https://github.com/muhammadahmad1857/Cloud-Engineering-Course/blob/main/NextJS-Q2/nextjs-classes/class09/README.md"}
             className="text-blue-300 hover:text-blue-100 transition-all duration-300 underline"
           >
             Readme.md
