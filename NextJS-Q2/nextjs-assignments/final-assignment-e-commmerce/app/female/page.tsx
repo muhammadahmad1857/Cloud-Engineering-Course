@@ -1,5 +1,5 @@
 import React from "react";
-import SimpleSlider from "../(components)/slider";
+// import SimpleSlider from "../(components)/slider";
 import CategoryProductUI from "../(components)/categoryProductUI";
 import CustomLayout from "../(components)/customLayout";
 

@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import Link from "next/link";
+import Image from "next/image";
 interface Slide {
   src: string;
   title: string;
@@ -28,10 +29,12 @@ export default function SimpleSlider({ slidesData }: SlidesDataProps) {
       <Slider {...settings}>
         {slidesData.map((slide, index) => (
           <div key={index} className="relative">
-            <img
+            <Image
               src={slide.src}
               alt={slide.title}
-              className="w-full h-screen object-cover"
+              width={100}
+              height={500}
+              className="w-screen h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-white">
               <Link href={`#${slide.title}`}>
