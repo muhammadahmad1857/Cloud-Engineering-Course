@@ -59,7 +59,13 @@ const Search: React.FC<SearchProps> = ({ isSidebar }: SearchProps) => {
     <div
       className={`relative ${isSidebar ? "w-full sm:flex hidden" : "lg:w-96"}`}
     >
-      <div className=" items-center h-10 gap-2 border border-gray-300 w-full rounded-md px-4 py-2  max-sm:flex max-md:hidden max-sm:mt-2 flex max-sm:w-full max-sm:items-center max-sm:gap-2 max-sm:rounded-md max-sm:border max-sm:border-[#abacb3] max-sm:px-2 max-sm:py-4 max-sm:transition-colors max-sm:duration-300 focus-within:border-[#A0A3B1]">
+      <div
+        className={
+          isSidebar
+            ? ` items-center h-10 gap-2 border border-gray-300 w-full rounded-md px-4 py-2  flex `
+            : `max-sm:flex max-md:hidden max-sm:mt-2 flex max-sm:w-full max-sm:items-center max-sm:gap-2 max-sm:rounded-md max-sm:border max-sm:border-[#abacb3] max-sm:px-2 max-sm:py-4 max-sm:transition-colors max-sm:duration-300 focus-within:border-[#A0A3B1]`
+        }
+      >
         <CiSearch className="h-5 w-5 text-gray-500" />
         <input
           type="text"
