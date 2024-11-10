@@ -155,69 +155,17 @@
 // export default Navbar;
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
-import { CiSearch } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
 import Sidebar from "./sidebar";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { fetchProducts, Product } from "../redux/slices/productSlice";
-import { RootState } from "../redux/store";
+
 import { usePathname } from "next/navigation";
+import Search from "./search";
 
 export default function Navbar() {
-  const { products, loading: isLoading } = useAppSelector(
-    (state: RootState) => state.products
-  );
-
-  const dispatch = useAppDispatch();
   const pathname = usePathname();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState<Product[]>([]);
-  // const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    dispatch(fetchProducts);
-  }, []);
-
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      if (searchTerm.trim()) {
-        const filteredProducts = products.filter((product) =>
-          product.title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setSearchResults(filteredProducts);
-      } else {
-        setSearchResults([]);
-      }
-    }, 300);
-
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm]);
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-  console.log(searchResults);
-
-  const highlightMatch = (text: string, term: string) => {
-    if (!term.trim()) return text;
-    const parts = text.split(new RegExp(`(${term})`, "gi"));
-    return parts.map((part, index) => (
-      <span
-        key={index}
-        className={
-          part.toLowerCase() === term.toLowerCase()
-            ? "text-gray-900 font-bold"
-            : ""
-        }
-      >
-        {part}
-      </span>
-    ));
-  };
-
   return (
     <>
       <nav className="mt-4 hidden h-10 items-center justify-between md:flex">
@@ -251,7 +199,7 @@ export default function Navbar() {
           })}
         </div>
 
-        <div className="relative">
+        {/* <div className="relative">
           <div className="flex items-center h-10 gap-2 border border-gray-300 rounded-md px-4 py-2 lg:w-96">
             <CiSearch className="h-5 w-5 text-gray-500" />
             <input
@@ -283,7 +231,9 @@ export default function Navbar() {
               )}
             </div>
           )}
-        </div>
+        </div> */}
+
+        <Search isSidebar={false} />
 
         <Link href="/cart">
           <button

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { FiHome } from "react-icons/fi";
+import Link from "next/link";
 
 export default function ErrorPage({
   err = "Failed to fetch",
@@ -24,10 +25,13 @@ export default function ErrorPage({
               <p className="text-paragraph-color text-[18px] font-normal leading-[24px] my-12">
                 {err}
               </p>
-              <button className="mt-8 rounded-lg capitalize bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
+              <Link
+                href={"/"}
+                className="mt-8 rounded-lg capitalize bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800"
+              >
                 <FiHome className="mr-2 inline h-6 w-6" />
                 Go To Home Page
-              </button>
+              </Link>
             </div>
           </div>
         </div>

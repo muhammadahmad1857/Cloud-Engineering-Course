@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
+import CustomLayout from "./customLayout";
+import Search from "./search";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -29,7 +31,7 @@ const Sidebar = () => {
         </Link>
 
         {/* Search Bar */}
-        <div
+        {/* <div
           className={`hidden h-10 rounded-md border lg:w-64 ${
             isOpen ? "bg-white text-black" : ""
           } items-center gap-2 border-gray-300 px-2 py-2 transition-colors duration-300 focus-within:border-gray-500 sm:flex`}
@@ -47,7 +49,11 @@ const Sidebar = () => {
               isOpen ? "bg-white text-black" : ""
             } px-2 py-1 text-sm`}
           />
-        </div>
+        </div> */}
+        <CustomLayout>
+          {" "}
+          <Search isSidebar={true} />
+        </CustomLayout>
 
         {/* Hamburger Icon */}
         <div className="flex items-center justify-center md:hidden">
@@ -75,7 +81,7 @@ const Sidebar = () => {
           </Link>
 
           {/* Search Bar */}
-          <div
+          {/* <div
             className={`hidden h-10 rounded-md border lg:w-64 ${
               isOpen ? "bg-white text-black" : ""
             } items-center gap-2 border-gray-300 px-2 py-2 transition-colors duration-300 focus-within:border-gray-500 sm:flex`}
@@ -93,25 +99,20 @@ const Sidebar = () => {
                 isOpen ? "bg-white text-black" : ""
               } px-2 py-1 text-sm`}
             />
-          </div>
-
+          </div> */}
+          <CustomLayout>
+            {" "}
+            <Search isSidebar={true} />
+          </CustomLayout>
           {/* Hamburger Icon */}
           <div className="flex items-center justify-center md:hidden">
             <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
           </div>
         </div>
-        <div className="mt-2 flex w-full items-center gap-2 rounded-md border border-[#abacb3] px-2 py-4 transition-colors duration-300 focus-within:border-[#A0A3B1] sm:hidden">
-          <button
-            aria-label="Search"
-            className="flex h-7 cursor-pointer items-center justify-center rounded-sm transition-all duration-500 hover:scale-125 hover:rounded-lg sm:w-8"
-          >
-            <CiSearch className="h-5 w-5" />
-          </button>
-          <input
-            type="text"
-            placeholder="What are you looking for?"
-            className="w-full outline-none"
-          />{" "}
+        <div className="w-full">
+          <CustomLayout>
+            <Search isSidebar={false} />
+          </CustomLayout>
         </div>
         {/* Sidebar Links */}
         <div className="mt-4 flex w-full flex-col">

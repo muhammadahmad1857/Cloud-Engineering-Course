@@ -1,0 +1,93 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import { CiSearch } from "react-icons/ci";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { fetchProducts, Product } from "../redux/slices/productSlice";
+import { RootState } from "../redux/store";
+
+interface SearchProps {
+  isSidebar: boolean;
+}
+
+const Search: React.FC<SearchProps> = ({ isSidebar }: SearchProps) => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const { products, loading: isLoading } = useAppSelector(
+    (state: RootState) => state.products
+  );
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts);
+  }, []);
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (searchTerm.trim()) {
+        const filteredProducts = products.filter((product) =>
+          product.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setSearchResults(filteredProducts);
+      } else {
+        setSearchResults([]);
+      }
+    }, 300);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchTerm, products]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const highlightMatch = (text: string, term: string) => {
+    if (!term.trim()) return text;
+    const parts = text.split(new RegExp(`(${term})`, "gi"));
+    return parts.map((part, index) => (
+      <span
+        key={index}
+        className={
+          part.toLowerCase() === term.toLowerCase()
+            ? "text-gray-900 font-bold"
+            : ""
+        }
+      >
+        {part}
+      </span>
+    ));
+  };
+
+  return (
+    <div
+      className={`relative ${isSidebar ? "w-full sm:flex hidden" : "lg:w-96"}`}
+    >
+      <div className="flex items-center h-10 gap-2 border border-gray-300 w-full rounded-md px-4 py-2  max-sm:flex max-md:hidden max-sm:mt-2 flex max-sm:w-full max-sm:items-center max-sm:gap-2 max-sm:rounded-md max-sm:border max-sm:border-[#abacb3] max-sm:px-2 max-sm:py-4 max-sm:transition-colors max-sm:duration-300 focus-within:border-[#A0A3B1]">
+        <CiSearch className="h-5 w-5 text-gray-500" />
+        <input
+          type="text"
+          placeholder="Search for products"
+          className="w-full outline-none bg-transparent"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div>
+      {searchTerm && (
+        <div className="absolute top-full z-50 w-full bg-white shadow-lg rounded-md mt-1 max-h-60 overflow-y-auto">
+          {searchResults.length > 0 ? (
+            searchResults.map((product) => (
+              <div key={product.id} className="block p-4 hover:bg-gray-100">
+                <h3 className="text-base font-semibold text-gray-800">
+                  {highlightMatch(product.title, searchTerm)}
+                </h3>
+              </div>
+            ))
+          ) : (
+            <p className="p-4 text-gray-600">No products found</p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Search;
