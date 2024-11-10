@@ -160,7 +160,6 @@ import Image from "next/image";
 import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
 import Sidebar from "./sidebar";
-
 import { usePathname } from "next/navigation";
 import Search from "./search";
 

@@ -3,7 +3,6 @@ import React from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import Image from "next/image";
-import { CiSearch } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
 import CustomLayout from "./customLayout";
 import Search from "./search";
