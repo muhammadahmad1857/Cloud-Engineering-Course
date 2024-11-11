@@ -3,9 +3,9 @@ import { FiShoppingCart } from "react-icons/fi";
 import SectionHeading from "./(components)/sectionHeading";
 import ProductsShowCase from "./(components)/productsShowCase";
 import CustomLayout from "./(components)/customLayout";
+import Link from "next/link";
 
 export default function Home() {
- 
   return (
     <>
       <header className="relative mb-16 mt-10 flex flex-col-reverse items-center max-md:gap-10 md:flex-row md:items-start md:justify-between">
@@ -24,10 +24,13 @@ export default function Home() {
               Anyone can beat you but no one can beat your outfit as long as you
               wear Dine outfits.
             </p>
-            <button className="mt-8 rounded-lg bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
+            <Link
+              href={"/all-products"}
+              className="mt-8 rounded-lg bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800"
+            >
               <FiShoppingCart className="mr-2 inline h-6 w-6" />
               Start Shopping
-            </button>
+            </Link>
           </div>
           {/* Container for Brand Logos */}
           <div className="mt-auto flex flex-wrap justify-center gap-6 pt-10 md:justify-start">
@@ -138,7 +141,7 @@ export default function Home() {
         </div>
       </main>
       <CustomLayout>
-        <ProductsShowCase/>
+        <ProductsShowCase />
       </CustomLayout>
       <div>
         <h1 className="mt-12 text-center font-[sora] text-2xl font-bold mob:text-end mob:text-3xl tab:text-5xl">
@@ -198,9 +201,12 @@ export default function Home() {
               color is the actual natural color of the fiber, undyed and 100%
               traceable.
             </p>
-            <button className="mt-6 rounded-md bg-black px-5 py-3 font-semibold text-white transition-colors duration-500 hover:bg-[#2b2929]">
+            <Link
+              href={"/all-products"}
+              className="mt-6 rounded-md bg-black px-5 py-3 font-semibold text-white transition-colors duration-500 hover:bg-[#2b2929]"
+            >
               See All Products
-            </button>
+            </Link>
           </div>
         </div>
       </div>
