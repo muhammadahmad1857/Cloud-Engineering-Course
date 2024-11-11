@@ -1,9 +1,8 @@
-
 "use client";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { RootState } from "../redux/store";
-import { removeLike, toggleLike } from "../redux/slices/productSlice";
+import { removeLike } from "../redux/slices/productSlice";
 import AddToCartBtn from "./addToCartBtn";
 import Image from "next/image";
 import { FiShoppingCart } from "react-icons/fi";
