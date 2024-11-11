@@ -1,31 +1,38 @@
-
 "use client";
 import React, { useEffect, useState } from "react";
 import SectionHeading from "./sectionHeading";
-import Image from "next/image";
 import { RootState } from "../redux/store";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { fetchProducts } from "../redux/slices/productSlice";
-import Link from "next/link";
+import { fetchProducts, Product } from "../redux/slices/productSlice";
 import Loader from "./mainLoader";
 import NoData from "./noData";
 import ErrorPage from "./custom-error";
+import ProductCard from "./productCard";
+import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa6";
 
 const CategoryProductUI = ({
   category,
+  id,
 }: {
-  category: "men's clothing" | "women's clothing" | "jewellery";
+  category?: "men's clothing" | "women's clothing" | "jewelery" | undefined;
+  id: "male" | "female" | "all" | "jewellery";
 }) => {
   const {
     products: prods,
-    loading: isLoading,
+    status,
     error,
+    likedProducts,
   } = useAppSelector((state: RootState) => state.products);
   const dispatch = useAppDispatch();
+  let products;
 
   // Filter products by category
-  const products = prods.filter((prod) => prod.category === category);
-
+  if (category) {
+    products = prods.filter((prod) => prod.category === category);
+  } else {
+    products = prods;
+  }
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 10;
@@ -33,18 +40,15 @@ const CategoryProductUI = ({
 
   // Slice products for current page
   const currentProducts = products.slice(
-    (currentPage - 1) * productsPerPage, // if current page is 1 then it slice from 0 to 10
+    (currentPage - 1) * productsPerPage,
     currentPage * productsPerPage
   );
-
-  console.log(products);
-
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-  console.log(prods);
+    if (status === "idle") {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, status]);
 
-  // Reset current page if category changes or products load
   useEffect(() => {
     setCurrentPage(1);
   }, [category, products.length]);
@@ -63,60 +67,51 @@ const CategoryProductUI = ({
   };
 
   return (
-    <>
+    <div id={id}>
       <SectionHeading heading="Check What We Have" title="Products" />
-      {isLoading ? (
+      {status == "loading" ? (
         <Loader />
       ) : currentProducts.length > 0 ? (
         <>
-          <div className="mt-5 grid xl:grid-cols-4 md:grid-cols-3 mob:grid-cols-2 place-items-center gap-5">
-            {currentProducts.map((product) => (
-              <div
-                className="w-full max-w-72 mob:w-64 border p-2 rounded-xl transition-transform duration-500 hover:scale-105"
+          <div className="mt-5 grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-items-center md:place-items-stretch gap-5">
+            {currentProducts.map((product: Product) => (
+              <ProductCard
+                likedProducts={likedProducts}
                 key={product.id}
-              >
-                <Link href={`/product/${product.id}`}>
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={200}
-                    height={200}
-                    className="max-h-96 w-full bg-gray-300 cursor-pointer mb-2 object-cover rounded-xl"
-                  />
-                  <div className="py-2 gap-2 flex flex-col">
-                    <h3 className="text-base font-semibold">{product.title}</h3>
-                    <p>{product.rating.rate}</p>
-                    <p className="text-lg font-semibold">${product.price}</p>
-                  </div>
-                </Link>
-              </div>
+                product={product}
+              />
             ))}
           </div>
-          {/* Pagination Controls */}
-          <div className="flex justify-center items-center mt-5 space-x-3">
-            <button
-              onClick={handlePrevPage}
-              disabled={currentPage === 1}
-              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
-            >
-              Previous
-            </button>
-            <span>
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
-            >
-              Next
-            </button>
-          </div>
+
+          {/* Conditional Pagination Controls */}
+          {products.length > productsPerPage && (
+            <div className="flex justify-center items-center mt-5 space-x-3">
+              <button
+                onClick={handlePrevPage}
+                disabled={currentPage === 1}
+                className="cursor-pointer transition-colors duration-500  bg-black bg-opacity-30 text-black p-2 rounded-full hover:bg-opacity-50"
+              >
+                <FaArrowLeft size={23} color="white" />
+              </button>
+
+              <span>
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                className="cursor-pointer transition-colors duration-500  bg-black bg-opacity-30 text-black p-2 rounded-full hover:bg-opacity-50"
+              >
+                {" "}
+                <FaArrowRight size={23} color="white" />
+              </button>
+            </div>
+          )}
         </>
       ) : (
         <NoData />
       )}
-    </>
+    </div>
   );
 };
 

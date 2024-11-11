@@ -15,10 +15,10 @@ const config: Config = {
         sm: "550px",
         // => @media (min-width: 640px) { ... }
 
-        md: "850px",
+        md: "900px",
         // => @media (min-width: 800px) { ... }
 
-        lg: "1024px",
+        lg: "1025px",
         // => @media (min-width: 1024px) { ... }
 
         tab: "720px",

@@ -24,9 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={sora.className}>
-        <main className="xxl:mx-auto min-h-[100dvh] max-w-screen-2xl mx-6 md:mx-10">
-          <CustomLayout>        
-              <Navbar />
+        <main className="xxl:mx-auto min-h-[100dvh] max-w-screen-2xl mx-2 mob:mx-6 md:mx-10">
+          <CustomLayout>
+            <Navbar />
           </CustomLayout>
           {children}
           <Newsletter />

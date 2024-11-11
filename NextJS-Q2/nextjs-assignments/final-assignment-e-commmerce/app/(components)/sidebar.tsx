@@ -1,17 +1,19 @@
+
 "use client";
-import React from "react";
+
+import React, { useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import Image from "next/image";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import CustomLayout from "./customLayout";
 import Search from "./search";
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+export default function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="block md:hidden">
+    <div className="block lg:hidden">
       {/* Navbar */}
       <div
         className={`flex items-center justify-between py-2 ${
@@ -25,44 +27,24 @@ const Sidebar = () => {
             alt="Logo"
             width={140}
             height={25}
-            className={`cursor-pointer object-contain mix-blend-multiply`}
+            className="cursor-pointer object-contain mix-blend-multiply"
           />
         </Link>
 
         {/* Search Bar */}
-        {/* <div
-          className={`hidden h-10 rounded-md border lg:w-64 ${
-            isOpen ? "bg-white text-black" : ""
-          } items-center gap-2 border-gray-300 px-2 py-2 transition-colors duration-300 focus-within:border-gray-500 sm:flex`}
-        >
-          <button
-            aria-label="Search"
-            className="flex h-8 w-8 cursor-pointer items-center justify-center transition-transform duration-500 hover:scale-125"
-          >
-            <CiSearch className="h-5 w-5" />
-          </button>
-          <input
-            type="text"
-            placeholder="Search"
-            className={`flex-1 outline-none ${
-              isOpen ? "bg-white text-black" : ""
-            } px-2 py-1 text-sm`}
-          />
-        </div> */}
         <CustomLayout>
-          {" "}
           <Search isSidebar={true} />
         </CustomLayout>
 
         {/* Hamburger Icon */}
-        <div className="flex items-center justify-center md:hidden">
+        <div className="flex items-center justify-center lg:hidden">
           <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
         </div>
       </div>
 
       {/* Full-Screen Sidebar */}
       <div
-        className={`fixed bottom-0 right-0 top-0 h-[100dvh] w-full transform bg-white text-black backdrop-filter ${
+        className={`fixed bottom-0 right-0 top-0 h-screen w-full transform bg-white text-black backdrop-filter ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } z-50 overflow-y-auto transition-transform duration-500`}
       >
@@ -79,67 +61,56 @@ const Sidebar = () => {
             />
           </Link>
 
-          {/* Search Bar */}
-          {/* <div
-            className={`hidden h-10 rounded-md border lg:w-64 ${
-              isOpen ? "bg-white text-black" : ""
-            } items-center gap-2 border-gray-300 px-2 py-2 transition-colors duration-300 focus-within:border-gray-500 sm:flex`}
-          >
-            <button
-              aria-label="Search"
-              className="flex h-8 w-8 cursor-pointer items-center justify-center transition-transform duration-500 hover:scale-125"
-            >
-              <CiSearch className="h-5 w-5" />
-            </button>
-            <input
-              type="text"
-              placeholder="Search"
-              className={`flex-1 outline-none ${
-                isOpen ? "bg-white text-black" : ""
-              } px-2 py-1 text-sm`}
-            />
-          </div> */}
           <CustomLayout>
-            {" "}
             <Search isSidebar={true} />
           </CustomLayout>
           {/* Hamburger Icon */}
-          <div className="flex items-center justify-center md:hidden">
+          <div className="flex items-center justify-center lg:hidden">
             <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
           </div>
         </div>
-        <div className="w-full">
-          <CustomLayout>
-            <Search isSidebar={false} />
-          </CustomLayout>
-        </div>
+
         {/* Sidebar Links */}
         <div className="mt-4 flex w-full flex-col">
-          {["Female", "Male", "Kids", "All Products"].map((item) => (
-            <>
+          {["Female", "Male", "Jewelery", "All Products"].map((item) => (
+            <React.Fragment key={item}>
               <Link
-                href="#"
-                key={item}
+                href={`/${item.toLowerCase().replace(" ", "-")}`}
                 className="w-full bg-black p-4 text-center text-xl text-white transition-colors duration-300 hover:bg-gray-800"
+                onClick={() => setIsOpen(false)}
               >
                 {item}
               </Link>
               <hr />
-            </>
+            </React.Fragment>
           ))}
-          <button className="mt-auto flex w-full items-center justify-center bg-black p-4 text-white transition-colors duration-300 hover:bg-gray-800">
+          <Link
+            href="/cart"
+            className="mt-auto flex w-full items-center justify-center bg-black p-4 text-white transition-colors duration-300 hover:bg-gray-800"
+            onClick={() => setIsOpen(false)}
+          >
             <FiShoppingCart className="mr-2 h-6 w-6" />
             Cart
-          </button>
+          </Link>
+          <hr />
+          <Link
+            href="/wishlist"
+            className="mt-auto flex w-full items-center justify-center bg-black p-4 text-white transition-colors duration-300 hover:bg-gray-800"
+            onClick={() => setIsOpen(false)}
+          >
+            <FiHeart className="mr-2 h-6 w-6" />
+            Wishlist
+          </Link>
         </div>
 
+        {/* Footer */}
         <div className="absolute bottom-0 w-full">
           <hr className="bg-black" />
           <p className="py-2 text-center">
             Made With ❤️ by{" "}
             <Link
               className="relative before:absolute before:-bottom-1 before:left-1/2 before:h-1 before:w-0 before:-translate-x-1/2 before:transform before:rounded-md before:bg-black before:transition-all before:duration-500 hover:before:w-full"
-              href={"https://github.com/muhammadahmad1857"}
+              href="https://github.com/muhammadahmad1857"
             >
               Muhammad Ahmad
             </Link>
@@ -148,6 +119,4 @@ const Sidebar = () => {
       </div>
     </div>
   );
-};
-
-export default Sidebar;
+}

@@ -1,0 +1,50 @@
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import React from "react";
+import { AiOutlineHeart } from "react-icons/ai";
+import { Product, toggleLike } from "../redux/slices/productSlice";
+import { AiFillHeart } from "react-icons/ai";
+import { useAppDispatch } from "../redux/hooks";
+import StarRating from "./starRating";
+
+interface Props {
+  product: Product;
+  likedProducts: Record<number, boolean>;
+}
+const ProductCard = ({ product, likedProducts }: Props) => {
+  const dispatch = useAppDispatch();
+
+  return (
+    <div className="w-full max-w-80 mob:w-72 border p-2 rounded-xl relative transition-transform duration-500 hover:scale-105 h-full">
+      {/* Heart icon for liking the product */}
+      <button
+        onClick={() => dispatch(toggleLike(product.id))}
+        className="absolute top-2 left-2 text-2xl cursor-pointer"
+      >
+        {likedProducts[product.id] ? (
+          <AiFillHeart className="text-red-500" />
+        ) : (
+          <AiOutlineHeart className="text-gray-300" />
+        )}
+      </button>
+
+      <Link href={`/product/${product.id}`}>
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={200}
+          height={200}
+          className="max-h-64 w-full bg-gray-300 cursor-pointer mb-2 object-cover rounded-xl"
+        />
+        <div className="py-2 gap-1 flex flex-col">
+          <h3 className="text-base font-semibold">{product.title}</h3>
+          <StarRating rating={product.rating.rate} />
+          <p className="text-lg font-semibold">${product.price}</p>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+export default ProductCard;

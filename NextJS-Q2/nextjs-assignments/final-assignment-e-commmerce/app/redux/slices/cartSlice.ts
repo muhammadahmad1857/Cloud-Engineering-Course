@@ -8,8 +8,8 @@
 // }
 
 // // Define the initial state using that type
-// const initialState: any = {
-  
+// const initialState: CounterState = {
+//   value:0
 // };
 
 // export const cartSlice = createSlice({
