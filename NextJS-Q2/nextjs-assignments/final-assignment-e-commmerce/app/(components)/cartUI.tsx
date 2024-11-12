@@ -17,7 +17,7 @@ const CartUI = () => {
       {items.length > 0 ? (
         <div className="flex items-start justify-between gap-20">
           {items.map((item) => (
-            <div className="flex-1 bg-gray-300">
+            <div key={item.id} className="flex-1 bg-gray-300">
               <div>
                 <Image
                   className="h-40 w-36 rounded-xl"
@@ -29,7 +29,7 @@ const CartUI = () => {
               </div>
             </div>
           ))}
-          <div className="bg-gray-900 text-white">Hello</div>
+          <div className="bg-gray-900 text-white">{totalPrice} -  {totalQuantity}</div>
         </div>
       ) : (
         <div className="flex items-center justify-center flex-col">
