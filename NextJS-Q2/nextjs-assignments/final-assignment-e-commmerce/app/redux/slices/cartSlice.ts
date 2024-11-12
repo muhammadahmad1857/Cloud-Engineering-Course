@@ -1,38 +1,86 @@
-// import { createSlice } from "@reduxjs/toolkit";
-// import type { PayloadAction } from "@reduxjs/toolkit";
-// import type { RootState } from "../store";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../store";
 
-// // Define a type for the slice state
-// interface CounterState {
-//   value: number;
-// }
+// Define a type for each item in the cart
+export interface CartItem {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+  quantity: number;
+  category: string;
+}
 
-// // Define the initial state using that type
-// const initialState: CounterState = {
-//   value:0
-// };
+// Define a type for the slice state
+interface CartState {
+  items: CartItem[];
+  totalQuantity: number;
+  totalPrice: number;
+}
 
-// export const cartSlice = createSlice({
-//   name: "counter",
-//   // `createSlice` will infer the state type from the `initialState` argument
-//   initialState,
-//   reducers: {
-//     increment: (state) => {
-//       state.value += 1;
-//     },
-//     decrement: (state) => {
-//       state.value -= 1;
-//     },
-//     // Use the PayloadAction type to declare the contents of `action.payload`
-//     incrementByAmount: (state, action: PayloadAction<number>) => {
-//       state.value += action.payload;
-//     },
-//   },
-// });
+// Define the initial state using that type
+const initialState: CartState = {
+  items: [
+    {
+      id: 20,
+      title: "DANVOUY Womens T Shirt Casual Cotton Short",
+      price: 12.99,
+      category: "men's clothing",
+      image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+      quantity: 1,
+    },
+  ],
+  totalQuantity: 0,
+  totalPrice: 0,
+};
 
-// export const { increment, decrement, incrementByAmount } = cartSlice.actions;
+export const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {
+    addToCart: (state, action: PayloadAction<CartItem>) => {
+      const existingItem = state.items.find(
+        (item) => item.id === action.payload.id
+      );
+      if (existingItem) {
+        existingItem.quantity += action.payload.quantity;
+      } else {
+        state.items.push(action.payload);
+      }
+      state.totalQuantity += action.payload.quantity;
+      state.totalPrice += action.payload.price * action.payload.quantity;
+    },
+    removeFromCart: (state, action: PayloadAction<number>) => {
+      const id = action.payload;
+      const index = state.items.findIndex((item) => item.id === id);
+      if (index >= 0) {
+        state.items.splice(index, 1);
+        state.totalQuantity -= state.items[index].quantity;
+        state.totalPrice -=
+          state.items[index].price * state.items[index].quantity;
+      }
+    },
+    updateQuantity: (
+      state,
+      action: PayloadAction<{ id: number; quantity: number }>
+    ) => {
+      const item = state.items.find((item) => item.id === action.payload.id);
+      if (item) {
+        item.quantity = action.payload.quantity;
+        state.totalQuantity =
+          state.totalQuantity - item.quantity + action.payload.quantity;
+        state.totalPrice =
+          state.totalPrice -
+          item.price * item.quantity +
+          item.price * action.payload.quantity;
+      }
+    },
+  },
+});
 
-// // Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.counter;
+export const { addToCart } = cartSlice.actions;
 
-// export default cartSlice.reducer;
+// Selector to get cart state
+export const selectCart = (state: RootState) => state.cart;
+
+export default cartSlice.reducer;

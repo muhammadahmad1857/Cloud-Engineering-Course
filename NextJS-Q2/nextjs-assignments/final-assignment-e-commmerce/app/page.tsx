@@ -24,12 +24,12 @@ export default function Home() {
               Anyone can beat you but no one can beat your outfit as long as you
               wear Dine outfits.
             </p>
-            <Link
-              href={"/all-products"}
-              className="mt-8 rounded-lg bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800"
-            >
-              <FiShoppingCart className="mr-2 inline h-6 w-6" />
-              Start Shopping
+            <Link href={"/all-products"}>
+              <button className="mt-8 rounded-lg bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
+                {" "}
+                <FiShoppingCart className="mr-2 inline h-6 w-6" />
+                Start Shopping
+              </button>
             </Link>
           </div>
           {/* Container for Brand Logos */}
@@ -201,11 +201,10 @@ export default function Home() {
               color is the actual natural color of the fiber, undyed and 100%
               traceable.
             </p>
-            <Link
-              href={"/all-products"}
-              className="mt-6 rounded-md bg-black px-5 py-3 font-semibold text-white transition-colors duration-500 hover:bg-[#2b2929]"
-            >
-              See All Products
+            <Link href={"/all-products"}>
+              <button className="mt-6 rounded-md capitalize bg-black px-5 py-3 font-semibold text-white transition-colors duration-500 hover:bg-[#2b2929]">
+                See All Products
+              </button>
             </Link>
           </div>
         </div>

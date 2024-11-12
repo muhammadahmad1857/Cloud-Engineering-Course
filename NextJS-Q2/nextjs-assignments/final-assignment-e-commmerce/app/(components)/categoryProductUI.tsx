@@ -89,7 +89,11 @@ const CategoryProductUI = ({
               <button
                 onClick={handlePrevPage}
                 disabled={currentPage === 1}
-                className="cursor-pointer transition-colors duration-500  bg-black bg-opacity-30 text-black p-2 rounded-full hover:bg-opacity-50"
+                className={`cursor-pointer transition-colors duration-500   text-black p-2 rounded-full ${
+                  currentPage === 1
+                    ? "bg-gray-300 cursor-not-allowed hover:bg-gray-400"
+                    : "bg-black bg-opacity-50 hover:bg-opacity-100"
+                }`}
               >
                 <FaArrowLeft size={23} color="white" />
               </button>
@@ -100,7 +104,11 @@ const CategoryProductUI = ({
               <button
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}
-                className="cursor-pointer transition-colors duration-500  bg-black bg-opacity-30 text-black p-2 rounded-full hover:bg-opacity-50"
+                className={`cursor-pointer transition-colors duration-500   text-black p-2 rounded-full ${
+                  currentPage === totalPages
+                    ? "bg-gray-300 cursor-not-allowed hover:bg-gray-400"
+                    : "bg-black bg-opacity-50 hover:bg-opacity-100"
+                }`}
               >
                 {" "}
                 <FaArrowRight size={23} color="white" />

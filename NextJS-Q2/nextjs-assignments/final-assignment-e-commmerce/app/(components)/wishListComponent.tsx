@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { RootState } from "../redux/store";
 import { removeLike } from "../redux/slices/productSlice";
 import AddToCartBtn from "./addToCartBtn";
 import Image from "next/image";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight, FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
 import { RxCrossCircled } from "react-icons/rx";
 
@@ -14,54 +14,111 @@ const WishListComponent = () => {
     (state: RootState) => state.products
   );
   const dispatch = useAppDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 1;
 
   // Filter products to display only those in the wishlist
   const wishlistItems = products.filter((product) => likedProducts[product.id]);
 
+  // Calculate the current items to display based on pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = wishlistItems.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Handle page change
+  const totalPages = Math.ceil(wishlistItems.length / itemsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
   return (
     <div className="w-full max-w-5xl mx-auto p-4">
       {wishlistItems.length > 0 ? (
-        wishlistItems.map((product) => (
-          <div
-            key={product.id}
-            className="flex items-center w-full p-4 mb-4 border rounded-lg shadow-md bg-white sm:space-x-4 space-y-4 sm:space-y-0 flex-col md:flex-row"
-          >
-            {/* Remove from Wishlist Button */}
-            <button
-              onClick={() => dispatch(removeLike(product.id))}
-              className="text-gray-500 hover:text-red-600 self-start md:self-auto"
+        <>
+          {currentItems.map((product) => (
+            <div
+              key={product.id}
+              className="flex items-center w-full p-4 mb-4 border rounded-lg shadow-md bg-white sm:space-x-4 space-y-4 sm:space-y-0 flex-col md:flex-row"
             >
-              <RxCrossCircled size={32} />
+              {/* Remove from Wishlist Button */}
+              <button
+                onClick={() => dispatch(removeLike(product.id))}
+                className="text-gray-500 hover:text-red-600 self-start md:self-auto"
+              >
+                <RxCrossCircled size={32} />
+              </button>
+
+              {/* Product Image */}
+              <div className="w-52 md:h-auto">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="object-cover w-full h-full rounded"
+                />
+              </div>
+
+              {/* Product Info */}
+              <div className="flex flex-col flex-grow md:pl-4">
+                <h2 className="text-lg font-semibold mb-1 text-gray-800">
+                  {product.title}
+                </h2>
+                <p className="text-sm text-gray-600 line-clamp-2">
+                  {product.description}
+                </p>
+
+                {/* Price */}
+                <span className="text-lg font-bold text-gray-900 mt-2 md:mt-0">
+                  ${product.price}
+                </span>
+
+                {/* Add to Cart Button */}
+                <AddToCartBtn  cartItem={{
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  image: product.image,
+                  quantity: 1,
+                  category: product.category,
+                 
+                }}/>
+              </div>
+            </div>
+          ))}
+
+          {/* Pagination Controls */}
+          <div className="flex justify-between mt-6">
+            <button
+              onClick={handlePreviousPage}
+              disabled={currentPage === 1}
+              className={`px-4 py-2 text-white rounded-lg ${
+                currentPage === 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-black  hover:bg-gray-700"
+              }`}
+            >
+              <FiArrowLeft />
             </button>
-
-            {/* Product Image */}
-            <div className="w-52 md:h-auto">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="object-cover w-full h-full rounded"
-              />
-            </div>
-
-            {/* Product Info */}
-            <div className="flex flex-col flex-grow md:pl-4">
-              <h2 className="text-lg font-semibold mb-1 text-gray-800">
-                {product.title}
-              </h2>
-              <p className="text-sm text-gray-600 line-clamp-2">
-                {product.description}
-              </p>
-
-              {/* Price */}
-              <span className="text-lg font-bold text-gray-900 mt-2 md:mt-0">
-                ${product.price}
-              </span>
-
-              {/* Add to Cart Button */}
-              <AddToCartBtn id={product.id} />
-            </div>
+            <span className="text-gray-700">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className={`px-4 py-2 text-white rounded-lg ${
+                currentPage === totalPages
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-black hover:bg-gray-700"
+              }`}
+            >
+              <FiArrowRight />
+            </button>
           </div>
-        ))
+        </>
       ) : (
         <section className="space-top pt-4 relative text-center">
           <div className="container mx-auto">

@@ -81,7 +81,7 @@ export default function Navbar() {
           {" "}
           <Search isSidebar={false} />
         </CustomLayout>
-        <div className="flex gap-2 items-center ">
+        <div className="flex gap-4 items-center ">
           <Link href="/cart">
             <button
               aria-label="View Cart"
