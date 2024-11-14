@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -8,10 +7,14 @@ import Image from "next/image";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import CustomLayout from "./customLayout";
 import Search from "./search";
+import { useAppSelector } from "../redux/hooks";
+import { RootState } from "../redux/store";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const cartLen = useAppSelector(
+    (state: RootState) => state.cart.items.length
+  );
   return (
     <div className="block lg:hidden">
       {/* Navbar */}
@@ -90,7 +93,7 @@ export default function Sidebar() {
             onClick={() => setIsOpen(false)}
           >
             <FiShoppingCart className="mr-2 h-6 w-6" />
-            Cart
+            Cart ({cartLen})
           </Link>
           <hr />
           <Link

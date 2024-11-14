@@ -8,9 +8,14 @@ import Sidebar from "./sidebar";
 import { usePathname } from "next/navigation";
 import Search from "./search";
 import CustomLayout from "./customLayout";
+import { useAppSelector } from "../redux/hooks";
+import { RootState } from "../redux/store";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const cartLength = useAppSelector(
+    (state: RootState) => state.cart.items.length
+  );
   return (
     <>
       <nav className="mt-4 hidden h-10 items-center justify-between lg:flex">
@@ -88,9 +93,7 @@ export default function Navbar() {
               className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-colors duration-500 hover:bg-gray-200"
             >
               <FiShoppingCart className="h-5 w-5 text-gray-700" />
-              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">
-                0
-              </span>
+              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">{cartLength || 0}</span>
             </button>
           </Link>
           <Link href={"/wishlist"}>

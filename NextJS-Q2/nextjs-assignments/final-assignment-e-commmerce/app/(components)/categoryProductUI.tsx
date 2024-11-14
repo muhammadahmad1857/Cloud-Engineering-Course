@@ -16,7 +16,7 @@ const CategoryProductUI = ({
   id,
 }: {
   category?: "men's clothing" | "women's clothing" | "jewelery" | undefined;
-  id: "male" | "female" | "all" | "jewellery";
+  id: "male" | "female" | "all" | "jewelery";
 }) => {
   const {
     products: prods,
@@ -67,12 +67,12 @@ const CategoryProductUI = ({
   };
 
   return (
-    <div id={id}>
+    <div className="mt-10" id={id}>
       <SectionHeading heading="Check What We Have" title="Products" />
       {status == "loading" ? (
         <Loader />
       ) : currentProducts.length > 0 ? (
-        <>
+        <div>
           <div className="mt-5 grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-items-center md:place-items-stretch gap-5">
             {currentProducts.map((product: Product) => (
               <ProductCard
@@ -115,7 +115,7 @@ const CategoryProductUI = ({
               </button>
             </div>
           )}
-        </>
+        </div>
       ) : (
         <NoData />
       )}

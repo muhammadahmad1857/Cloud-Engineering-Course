@@ -20,7 +20,7 @@ const Jewellery = () => {
         ]}
       />
       <CustomLayout>
-        <CategoryProductUI category="jewelery" id="jewellery" />
+        <CategoryProductUI category="jewelery" id="jewelery" />
       </CustomLayout>
     </div>
   );

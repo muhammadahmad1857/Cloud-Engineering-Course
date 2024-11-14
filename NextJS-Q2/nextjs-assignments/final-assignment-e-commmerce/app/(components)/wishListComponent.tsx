@@ -15,7 +15,7 @@ const WishListComponent = () => {
   );
   const dispatch = useAppDispatch();
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 1;
+  const itemsPerPage = 5;
 
   // Filter products to display only those in the wishlist
   const wishlistItems = products.filter((product) => likedProducts[product.id]);

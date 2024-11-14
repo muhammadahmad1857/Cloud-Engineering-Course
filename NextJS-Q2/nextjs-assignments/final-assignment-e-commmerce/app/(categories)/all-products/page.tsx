@@ -11,6 +11,7 @@ const Products = () => {
           {
             src: "/slide1.png",
             title: "Welcome To Dine Market",
+            link: "#all",
           },
           {
             src: "/slide3.png",

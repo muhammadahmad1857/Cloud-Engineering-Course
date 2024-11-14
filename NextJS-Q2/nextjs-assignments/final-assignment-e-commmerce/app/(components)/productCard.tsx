@@ -20,7 +20,7 @@ const ProductCard = ({ product, likedProducts }: Props) => {
       {/* Heart icon for liking the product */}
       <button
         onClick={() => dispatch(toggleLike(product.id))}
-        className="absolute top-2 left-2 text-2xl cursor-pointer"
+        className="absolute top-1 left-1 z-50 text-2xl cursor-pointer"
       >
         {likedProducts[product.id] ? (
           <AiFillHeart className="text-red-500" />
@@ -35,7 +35,7 @@ const ProductCard = ({ product, likedProducts }: Props) => {
           alt={product.title}
           width={200}
           height={200}
-          className="max-h-64 w-full bg-gray-300 cursor-pointer mb-2 object-cover rounded-xl"
+          className="min-h-64 min-w-full max-h-64 max-w-full shadow-xl hover:shadow-2xl hover:shadow-gray-800 transition-shadow duration-500  cursor-pointer mb-2 object-contain mix-blend-color-burn rounded-xl"
         />
         <div className="py-2 gap-1 flex flex-col">
           <h3 className="text-base font-semibold">{product.title}</h3>

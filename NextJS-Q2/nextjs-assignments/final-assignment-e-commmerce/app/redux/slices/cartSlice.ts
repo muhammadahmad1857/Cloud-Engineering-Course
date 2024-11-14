@@ -22,7 +22,7 @@ interface CartState {
 const initialState: CartState = {
   items: [
     {
-      id: 20,
+      id: 21,
       title: "DANVOUY Womens T Shirt Casual Cotton Short",
       price: 12.99,
       category: "men's clothing",
@@ -30,8 +30,8 @@ const initialState: CartState = {
       quantity: 1,
     },
   ],
-  totalQuantity: 0,
-  totalPrice: 0,
+  totalQuantity: 1,
+  totalPrice: 12.99,
 };
 
 export const cartSlice = createSlice({
@@ -53,32 +53,38 @@ export const cartSlice = createSlice({
     removeFromCart: (state, action: PayloadAction<number>) => {
       const id = action.payload;
       const index = state.items.findIndex((item) => item.id === id);
-      if (index >= 0) {
-        state.items.splice(index, 1);
-        state.totalQuantity -= state.items[index].quantity;
+      if (state.items[index]) {
+        state.totalQuantity -= state.items[index]?.quantity;
         state.totalPrice -=
-          state.items[index].price * state.items[index].quantity;
+          state.items[index]?.price * state.items[index]?.quantity;
+        state.items.splice(index, 1);
       }
+      // console.log(index, state.items[0]);
     },
     updateQuantity: (
       state,
       action: PayloadAction<{ id: number; quantity: number }>
     ) => {
+      console.log(action.payload);
       const item = state.items.find((item) => item.id === action.payload.id);
       if (item) {
-        item.quantity = action.payload.quantity;
         state.totalQuantity =
           state.totalQuantity - item.quantity + action.payload.quantity;
+
         state.totalPrice =
           state.totalPrice -
           item.price * item.quantity +
           item.price * action.payload.quantity;
+        item.quantity = action.payload.quantity;
+        console.log(item.quantity);
       }
+      // console.log(item, state.totalQuantity);
+      console.log(state.items);
     },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
 
 // Selector to get cart state
 export const selectCart = (state: RootState) => state.cart;
