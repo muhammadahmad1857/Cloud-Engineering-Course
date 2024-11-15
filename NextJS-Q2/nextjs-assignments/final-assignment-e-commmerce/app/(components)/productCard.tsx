@@ -7,6 +7,7 @@ import { Product, toggleLike } from "../redux/slices/productSlice";
 import { AiFillHeart } from "react-icons/ai";
 import { useAppDispatch } from "../redux/hooks";
 import StarRating from "./starRating";
+import useToast from "quick-toastify";
 
 interface Props {
   product: Product;
@@ -14,12 +15,24 @@ interface Props {
 }
 const ProductCard = ({ product, likedProducts }: Props) => {
   const dispatch = useAppDispatch();
-
+  const { toastComponent, triggerToast } = useToast("bottom-right");
+  const handleWishlist = () => {
+    dispatch(toggleLike(product.id));
+    triggerToast({
+      message: !likedProducts[product.id]
+        ? "Product added to wishlist"
+        : "Product removed from wishlist",
+      duration: 1000,
+      type: "success",
+      animationIn: "pop",
+      animationOut: "slide",
+    });
+  };
   return (
     <div className="w-full max-w-80 mob:w-72 border p-2 rounded-xl relative transition-transform duration-500 hover:scale-105 h-full">
       {/* Heart icon for liking the product */}
       <button
-        onClick={() => dispatch(toggleLike(product.id))}
+        onClick={handleWishlist}
         className="absolute top-1 left-1 z-50 text-2xl cursor-pointer"
       >
         {likedProducts[product.id] ? (
@@ -29,7 +42,7 @@ const ProductCard = ({ product, likedProducts }: Props) => {
         )}
       </button>
 
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/products/${product.id}`}>
         <Image
           src={product.image}
           alt={product.title}
@@ -43,6 +56,7 @@ const ProductCard = ({ product, likedProducts }: Props) => {
           <p className="text-lg font-semibold">${product.price}</p>
         </div>
       </Link>
+      {toastComponent}
     </div>
   );
 };

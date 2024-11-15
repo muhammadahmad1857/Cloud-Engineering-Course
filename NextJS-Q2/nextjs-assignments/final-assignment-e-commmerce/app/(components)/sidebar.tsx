@@ -12,9 +12,7 @@ import { RootState } from "../redux/store";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
-  const cartLen = useAppSelector(
-    (state: RootState) => state.cart.items.length
-  );
+  const cartLen = useAppSelector((state: RootState) => state.cart.items.length);
   return (
     <div className="block lg:hidden">
       {/* Navbar */}
@@ -75,7 +73,7 @@ export default function Sidebar() {
 
         {/* Sidebar Links */}
         <div className="mt-4 flex w-full flex-col">
-          {["Female", "Male", "Jewelery", "All Products"].map((item) => (
+          {["Female", "Male", "Jewelery", "Products"].map((item) => (
             <React.Fragment key={item}>
               <Link
                 href={`/${item.toLowerCase().replace(" ", "-")}`}

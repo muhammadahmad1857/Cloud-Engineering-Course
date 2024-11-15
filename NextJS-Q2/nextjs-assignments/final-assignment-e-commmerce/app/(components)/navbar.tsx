@@ -30,7 +30,7 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-2 xl:gap-6 text-sm font-bold  lg:text-base">
-          {["Female", "Male", "Jewelery", "All Products"].map((item) => {
+          {["Female", "Male", "Jewelery", "Products"].map((item) => {
             const link = `/${item.toLowerCase().replace(" ", "-")}`;
             const isActive = pathname === link;
             return (
@@ -93,7 +93,9 @@ export default function Navbar() {
               className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-colors duration-500 hover:bg-gray-200"
             >
               <FiShoppingCart className="h-5 w-5 text-gray-700" />
-              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">{cartLength || 0}</span>
+              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">
+                {cartLength || 0}
+              </span>
             </button>
           </Link>
           <Link href={"/wishlist"}>

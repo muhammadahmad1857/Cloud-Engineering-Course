@@ -8,6 +8,7 @@ import Image from "next/image";
 import { FiArrowLeft, FiArrowRight, FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
 import { RxCrossCircled } from "react-icons/rx";
+import useToast from "quick-toastify";
 
 const WishListComponent = () => {
   const { products, likedProducts } = useAppSelector(
@@ -16,7 +17,7 @@ const WishListComponent = () => {
   const dispatch = useAppDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-
+  const { toastComponent, triggerToast } = useToast("top-right");
   // Filter products to display only those in the wishlist
   const wishlistItems = products.filter((product) => likedProducts[product.id]);
 
@@ -47,7 +48,16 @@ const WishListComponent = () => {
             >
               {/* Remove from Wishlist Button */}
               <button
-                onClick={() => dispatch(removeLike(product.id))}
+                onClick={() => {
+                  dispatch(removeLike(product.id));
+                  triggerToast({
+                    message: "The product has been removed from your wishlist.",
+                    type: "success",
+                    duration: 3000,
+                    animationIn: "pop",
+                    animationOut: "slide",
+                  });
+                }}
                 className="text-gray-500 hover:text-red-600 self-start md:self-auto"
               >
                 <RxCrossCircled size={32} />
@@ -77,47 +87,57 @@ const WishListComponent = () => {
                 </span>
 
                 {/* Add to Cart Button */}
-                <AddToCartBtn  cartItem={{
-                  id: product.id,
-                  title: product.title,
-                  price: product.price,
-                  image: product.image,
-                  quantity: 1,
-                  category: product.category,
-                 
-                }}/>
+                <AddToCartBtn
+                  cartItem={{
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1,
+                    category: product.category,
+                  }}
+                  toastFunc={() =>
+                    triggerToast({
+                      message: `${product.title} added to cart!`,
+                      duration: 3000,
+                      type: "success",
+                      animationIn: "pop",
+                      animationOut: "slide",
+                    })
+                  }
+                />
               </div>
             </div>
           ))}
-
-          {/* Pagination Controls */}
-          <div className="flex justify-between mt-6">
-            <button
-              onClick={handlePreviousPage}
-              disabled={currentPage === 1}
-              className={`px-4 py-2 text-white rounded-lg ${
-                currentPage === 1
-                  ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-black  hover:bg-gray-700"
-              }`}
-            >
-              <FiArrowLeft />
-            </button>
-            <span className="text-gray-700">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              className={`px-4 py-2 text-white rounded-lg ${
-                currentPage === totalPages
-                  ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-black hover:bg-gray-700"
-              }`}
-            >
-              <FiArrowRight />
-            </button>
-          </div>
+          {wishlistItems.length > itemsPerPage && (
+            <div className="flex justify-between mt-6">
+              <button
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+                className={`px-4 py-2 text-white rounded-lg ${
+                  currentPage === 1
+                    ? "bg-gray-300 cursor-not-allowed"
+                    : "bg-black  hover:bg-gray-700"
+                }`}
+              >
+                <FiArrowLeft />
+              </button>
+              <span className="text-gray-700">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                className={`px-4 py-2 text-white rounded-lg ${
+                  currentPage === totalPages
+                    ? "bg-gray-300 cursor-not-allowed"
+                    : "bg-black hover:bg-gray-700"
+                }`}
+              >
+                <FiArrowRight />
+              </button>
+            </div>
+          )}
         </>
       ) : (
         <section className="space-top pt-4 relative text-center">
@@ -155,6 +175,7 @@ const WishListComponent = () => {
           </div>
         </section>
       )}
+      {toastComponent}
     </div>
   );
 };
