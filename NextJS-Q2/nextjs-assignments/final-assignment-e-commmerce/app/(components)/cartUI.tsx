@@ -117,7 +117,7 @@ const CartUI = () => {
               <p>Price</p>
               <p>${totalPrice}</p>
             </div>{" "}
-            <button className="mt-2 rounded-lg capitalize bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
+            <button className="mt-2 rounded-lg text-sm capitalize bg-black px-2 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
               {" "}
               <FiShoppingCart className="mr-2 inline h-6 w-6" />
               Proceed to CheckOut
