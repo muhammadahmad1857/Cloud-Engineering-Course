@@ -37,11 +37,13 @@ export default function Navbar() {
               <Link
                 href={link}
                 key={item}
-                className={`relative ${
-                  isActive ? "text-theme-color" : "text-black"
-                } before:absolute before:bottom-0 before:left-1/2 before:h-1 before:w-0 before:-translate-x-1/2 before:transform before:rounded-md ${
-                  isActive ? "before:bg-theme-color" : "before:bg-black"
-                } before:transition-all before:duration-500 hover:before:w-full`}
+                className={`relative 
+                  text-black
+                 before:absolute before:bottom-0 before:left-1/2 before:h-1 ${
+                   isActive ? "before:w-full" : "before:w-0"
+                 } before:-translate-x-1/2 before:transform before:rounded-md
+                 before:bg-black
+                  before:transition-all before:duration-500 ${isActive?'hover:before:w-0':'hover:before:w-full'}`}
               >
                 {item}
               </Link>
