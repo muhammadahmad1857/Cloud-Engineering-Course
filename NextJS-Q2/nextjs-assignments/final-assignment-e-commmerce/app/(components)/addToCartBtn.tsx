@@ -4,7 +4,6 @@ import { FiShoppingCart } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/cartSlice";
 import { CartItem } from "../redux/slices/cartSlice";
-import useToast from "quick-toastify";
 
 const AddToCartBtn = ({
   cartItem,
@@ -14,7 +13,6 @@ const AddToCartBtn = ({
   toastFunc: () => void;
 }) => {
   const dispatch = useDispatch();
-  // const { toastComponent } = useToast("top-right");
 
   return (
     <button

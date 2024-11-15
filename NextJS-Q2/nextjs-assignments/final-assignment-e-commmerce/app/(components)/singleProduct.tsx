@@ -7,11 +7,12 @@ import Image from "next/image";
 import ErrorPage from "./custom-error";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 const SignleProduct = ({ product }: { product: Product }) => {
+  
+  const { toastComponent, triggerToast } = useToast("top-right");
+  const [quantity, setQuantity] = useState(1);
   if (!product) {
     return <ErrorPage />;
   }
-  const { toastComponent, triggerToast } = useToast("top-right");
-  const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (e: any) => {
     const value = Number(e.target.value);
