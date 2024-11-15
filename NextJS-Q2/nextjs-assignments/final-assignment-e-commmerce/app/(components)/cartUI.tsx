@@ -8,6 +8,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { removeFromCart, updateQuantity } from "../redux/slices/cartSlice";
 import useToast from "quick-toastify";
+import { FiShoppingCart } from "react-icons/fi";
 
 const CartUI = () => {
   const {
@@ -116,6 +117,11 @@ const CartUI = () => {
               <p>Price</p>
               <p>${totalPrice}</p>
             </div>{" "}
+            <button className="mt-2 rounded-lg capitalize bg-black px-6 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
+              {" "}
+              <FiShoppingCart className="mr-2 inline h-6 w-6" />
+              Proceed to CheckOut
+            </button>{" "}
           </div>
         </div>
       ) : (
