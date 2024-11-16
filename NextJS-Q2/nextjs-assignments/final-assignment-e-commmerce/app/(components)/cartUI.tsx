@@ -38,7 +38,7 @@ const CartUI = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({  cartItems: items  }),
+        body: JSON.stringify({ cartItems: items }),
       });
 
       if (!response.ok) {
@@ -163,10 +163,9 @@ const CartUI = () => {
             </div>{" "}
             <button
               onClick={() => handleCheckout()}
-              className="mt-2 rounded-lg text-sm capitalize bg-black px-2 py-3 text-white transition-colors duration-300 hover:bg-gray-800"
+              className="mt-2 rounded-lg text-sm capitalize bg-black px-4 py-3 text-white transition-colors duration-300 hover:bg-gray-800"
             >
               {" "}
-              <FiShoppingCart className="mr-2 inline h-6 w-6" />
               Proceed to CheckOut
             </button>{" "}
           </div>
