@@ -8,7 +8,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { removeFromCart, updateQuantity } from "../redux/slices/cartSlice";
 import useToast from "quick-toastify";
-import { FiShoppingCart } from "react-icons/fi";
 import getStripe from "@/utils/stripe";
 
 const CartUI = () => {
