@@ -9,6 +9,7 @@ import Link from "next/link";
 import Loader from "./mainLoader";
 import NoData from "./noData";
 import ErrorPage from "./custom-error";
+import useToast from "quick-toastify";
 
 const ProductsShowCase = () => {
   const { products, status, error } = useAppSelector(
@@ -16,7 +17,7 @@ const ProductsShowCase = () => {
   );
 
   const dispatch = useAppDispatch();
-
+  const { toastComponent } = useToast("top-right");
   useEffect(() => {
     if (status == "idle") {
       dispatch(fetchProducts());
@@ -56,6 +57,7 @@ const ProductsShowCase = () => {
       ) : (
         <NoData />
       )}
+      {toastComponent}
     </>
   );
 };

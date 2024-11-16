@@ -56,7 +56,6 @@ const ProductCard = ({ product, likedProducts }: Props) => {
           <p className="text-lg font-semibold">${product.price}</p>
         </div>
       </Link>
-      {toastComponent}
     </div>
   );
 };
