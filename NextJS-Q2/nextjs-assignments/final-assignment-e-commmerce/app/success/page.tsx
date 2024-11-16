@@ -1,6 +1,5 @@
 import React from "react";
 import SectionHeading from "../(components)/sectionHeading";
-import CustomLayout from "../(components)/customLayout";
 import Link from "next/link";
 
 const Success = () => {
