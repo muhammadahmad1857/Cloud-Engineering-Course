@@ -9,6 +9,7 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import { removeFromCart, updateQuantity } from "../redux/slices/cartSlice";
 import useToast from "quick-toastify";
 import { FiShoppingCart } from "react-icons/fi";
+import getStripe from "@/utils/stripe";
 
 const CartUI = () => {
   const {
@@ -30,6 +31,49 @@ const CartUI = () => {
     });
   };
   const { toastComponent, triggerToast } = useToast("top-right");
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({  cartItems: items  }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Something went wrong.");
+      }
+
+      const { id } = await response.json();
+
+      const stripe = await getStripe();
+
+      if (stripe) {
+        const { error } = await stripe.redirectToCheckout({ sessionId: id });
+        if (error) {
+          console.error("Stripe redirect error:", error);
+          triggerToast({
+            message: "Payment failed. Please try again.",
+            duration: 3000,
+            type: "error",
+            animationIn: "pop",
+            animationOut: "slide",
+          });
+        }
+      }
+    } catch (error: any) {
+      console.error("Error during checkout:", error);
+      triggerToast({
+        message: error.message || "Something went wrong.",
+        duration: 3000,
+        type: "error",
+        animationIn: "pop",
+        animationOut: "slide",
+      });
+    }
+  };
   return (
     <div className="my-10">
       {items.length > 0 ? (
@@ -117,7 +161,10 @@ const CartUI = () => {
               <p>Price</p>
               <p>${totalPrice}</p>
             </div>{" "}
-            <button className="mt-2 rounded-lg text-sm capitalize bg-black px-2 py-3 text-white transition-colors duration-300 hover:bg-gray-800">
+            <button
+              onClick={() => handleCheckout()}
+              className="mt-2 rounded-lg text-sm capitalize bg-black px-2 py-3 text-white transition-colors duration-300 hover:bg-gray-800"
+            >
               {" "}
               <FiShoppingCart className="mr-2 inline h-6 w-6" />
               Proceed to CheckOut
