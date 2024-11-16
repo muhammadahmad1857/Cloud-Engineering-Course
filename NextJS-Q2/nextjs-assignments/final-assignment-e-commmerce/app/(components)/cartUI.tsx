@@ -152,11 +152,11 @@ const CartUI = () => {
             <h2 className="capitalize text-xl font-bold text-nowrap">
               Order sumamry
             </h2>
-            <div className="flex justify-between items-center py-4 text-xl">
+            <div className="flex justify-between items-center py-4 text-lg">
               <p>Quantity</p>
               <p>{totalQuantity} Product(s)</p>
             </div>
-            <div className="flex justify-between items-center text-xl py-4">
+            <div className="flex justify-between items-center text-lg py-4">
               <p>Price</p>
               <p>${totalPrice}</p>
             </div>{" "}

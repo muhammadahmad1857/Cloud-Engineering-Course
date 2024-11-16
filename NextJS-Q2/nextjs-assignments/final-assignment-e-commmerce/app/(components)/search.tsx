@@ -4,6 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { fetchProducts, Product } from "../redux/slices/productSlice";
 import { RootState } from "../redux/store";
+import Link from "next/link";
 
 interface SearchProps {
   isSidebar: boolean;
@@ -81,11 +82,15 @@ const Search: React.FC<SearchProps> = ({ isSidebar }: SearchProps) => {
         <div className="absolute top-full z-50 w-full bg-white shadow-lg rounded-md mt-1 max-h-60 overflow-y-auto">
           {searchResults.length > 0 ? (
             searchResults.map((product) => (
-              <div key={product.id} className="block p-4 hover:bg-gray-100">
+              <Link
+                key={product.id}
+                href={`/products/${product.id}`}
+                className="block p-4 cursor-pointer hover:bg-gray-100"
+              >
                 <h3 className="text-base font-semibold text-gray-800">
                   {highlightMatch(product.title, searchTerm)}
                 </h3>
-              </div>
+              </Link>
             ))
           ) : (
             <p className="p-4 text-gray-600">No products found</p>

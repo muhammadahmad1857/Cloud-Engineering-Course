@@ -15,7 +15,7 @@ interface Props {
 }
 const ProductCard = ({ product, likedProducts }: Props) => {
   const dispatch = useAppDispatch();
-  const {triggerToast} = useToast("bottom-right");
+  const {toastComponent,triggerToast} = useToast("bottom-right");
   const handleWishlist = () => {
     dispatch(toggleLike(product.id));
     triggerToast({
@@ -56,6 +56,8 @@ const ProductCard = ({ product, likedProducts }: Props) => {
           <p className="text-lg font-semibold">${product.price}</p>
         </div>
       </Link>
+      {toastComponent}
+
     </div>
   );
 };

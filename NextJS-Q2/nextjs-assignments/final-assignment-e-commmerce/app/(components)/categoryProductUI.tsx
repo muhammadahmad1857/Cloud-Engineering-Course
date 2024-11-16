@@ -10,7 +10,6 @@ import ErrorPage from "./custom-error";
 import ProductCard from "./productCard";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaArrowLeft } from "react-icons/fa6";
-import useToast from "quick-toastify";
 
 const CategoryProductUI = ({
   category,
@@ -26,7 +25,6 @@ const CategoryProductUI = ({
     likedProducts,
   } = useAppSelector((state: RootState) => state.products);
   const dispatch = useAppDispatch();
-  const { toastComponent } = useToast("top-right");
   let products;
 
   // Filter products by category
@@ -122,7 +120,6 @@ const CategoryProductUI = ({
       ) : (
         <NoData />
       )}
-      {toastComponent}
     </div>
   );
 };

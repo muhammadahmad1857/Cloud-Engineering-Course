@@ -33,7 +33,6 @@ export async function POST(request: NextRequest) {
       adjustable_quantity: {
         enabled: true, // Allow users to adjust quantities
         minimum: 1, // Minimum quantity they can set
-        maximum: 10, //  Maximum quantity
       },
     }));
 

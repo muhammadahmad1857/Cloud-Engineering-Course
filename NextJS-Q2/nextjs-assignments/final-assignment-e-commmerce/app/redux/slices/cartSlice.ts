@@ -21,14 +21,7 @@ interface CartState {
 // Define the initial state using that type
 const initialState: CartState = {
   items: [
-    {
-      id: 21,
-      title: "DANVOUY Womens T Shirt Casual Cotton Short",
-      price: 12.99,
-      category: "men's clothing",
-      image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-      quantity: 1,
-    },
+    
   ],
   totalQuantity: 1,
   totalPrice: 12.99,
