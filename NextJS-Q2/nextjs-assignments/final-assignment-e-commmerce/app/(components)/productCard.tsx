@@ -15,7 +15,7 @@ interface Props {
 }
 const ProductCard = ({ product, likedProducts }: Props) => {
   const dispatch = useAppDispatch();
-  const { triggerToast } = useToast("bottom-right");
+  const {triggerToast} = useToast("bottom-right");
   const handleWishlist = () => {
     dispatch(toggleLike(product.id));
     triggerToast({
