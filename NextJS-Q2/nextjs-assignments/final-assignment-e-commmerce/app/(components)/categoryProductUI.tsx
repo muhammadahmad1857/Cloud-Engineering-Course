@@ -69,7 +69,6 @@ const CategoryProductUI = ({
   return (
     <div className="mt-10" id={id}>
       <SectionHeading heading="Check What We Have" title="Products" />
-      {category}
       {status == "loading" ? (
         <Loader />
       ) : currentProducts.length > 0 ? (
