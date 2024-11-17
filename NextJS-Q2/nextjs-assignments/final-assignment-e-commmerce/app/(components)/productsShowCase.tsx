@@ -38,7 +38,7 @@ const ProductsShowCase = () => {
         <div className="mt-5 grid grid-cols-1 tab:grid-cols-2  xl:grid-cols-3 place-items-center  xl:place-items-stretch gap-5 ">
           {products.slice(0, 3).map((product) => (
             <Link
-              href={`/product/${product.id}`}
+              href={`/products/${product.id}`}
               className="w-full flex flex-col h-full max-w-[350px] mob:w-96 p-3 transition-transform duration-500 hover:scale-105 border border-gray-300 rounded-xl"
               key={product.id}
             >
